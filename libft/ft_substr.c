@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 12:28:06 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/21 12:52:26 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/23 08:51:28 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char    *subs;
-	size_t  i;
+	char	*subs;
+	size_t	i;
 
 	i = 0;
-	if (!(subs = (char *)malloc(sizeof(char) * len) + 1))
+	subs = (char *)malloc(sizeof(char) * len) + 1;
+	if (!(subs))
 		return (NULL);
 	while (start < len)
 	{

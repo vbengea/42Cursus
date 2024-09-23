@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:16:45 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/17 18:41:14 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/23 08:49:09 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t  ft_strlen(const char *s)
-{
-    size_t  i;
+#include "libft.h"
 
-    i = 0;
-    while(s[i])
-        i++;
-    return (i);
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
