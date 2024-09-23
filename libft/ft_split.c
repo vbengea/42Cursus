@@ -6,33 +6,13 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:53:31 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/23 19:42:54 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/23 19:55:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 // #include <stdlib.h>
 // #include <stdio.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*subs;
-	size_t	i;
-
-	i = 0;
-	subs = (char *)malloc(sizeof(char) * (len + 1));
-	if (!(subs))
-		return (NULL);
-	while (start < len)
-	{
-		subs[i] = s[start];
-		i++;
-		start++;
-	}
-	subs[i] = '\0';
-	return (subs);
-}
-
 
 static int  count_words(char const *s, char c)
 {
@@ -83,7 +63,7 @@ char    **ft_split(char const *s, char c)
             word_len = get_word_len(s, &c);
             split_array[i] = ft_substr(s, 0, word_len);
             if (!split_array[i])
-                return (NULL); // Handle memory leak in real code
+                return (NULL);
             s += word_len;
             i++;
         }
