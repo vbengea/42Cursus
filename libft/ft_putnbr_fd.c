@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:31:21 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/24 11:40:33 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/24 19:21:28 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void    ft_putnbr_fd(int n, int fd)
 		n = n * -1;
 		write(fd, "-", 1);
 		if (n >= 10)
-			ft_putnbr(n / 10);
+			ft_putnbr_fd(n / 10, fd);
 		num_char = (n % 10) + '0';
 		write(fd, &num_char, 1);
 	}
 	else
 	{
 		if (n >= 10)
-			ft_putnbr(n / 10);
+			ft_putnbr_fd(n / 10, fd);
 		num_char = (n % 10) + '0';
 		write(fd, &num_char, 1);
 	}

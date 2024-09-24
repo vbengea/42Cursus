@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 19:15:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/24 15:09:01 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/24 19:09:16 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t	i;
 	char	*ptr;
 
-	*ptr = (char *)s;
+	ptr = (char *)s;
 	i = 0;
 	while (i < n)
 	{
