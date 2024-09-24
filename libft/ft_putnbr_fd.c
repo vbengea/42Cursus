@@ -6,13 +6,13 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:31:21 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/24 19:21:28 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/24 19:37:29 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	num_char;
 
