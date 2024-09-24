@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:53:31 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/24 09:53:55 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/09/24 19:05:25 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,40 +35,58 @@ static	int	count_words(char const *s, char c)
 	return (count);
 }
 
-static	int	get_word_len(char const *s, char *sep)
+static	int	get_word_len(char const *s, char sep)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] != *sep && s[i] != '\0')
+	while (s[i] != sep && s[i] != '\0')
 		i++;
 	return (i);
+}
+
+static void	free_split_array(char **split_array, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(split_array[i]);
+		i++;
+	}
+	free(split_array);
+}
+
+static	int	add_word(char const **s, char c, char **split_array, int i)
+{
+	int	word_len;
+
+	word_len = get_word_len(*s, c);
+	split_array[i] = ft_substr(*s, 0, word_len);
+	if (!split_array[i])
+	{
+		free_split_array(split_array, i);
+		return (0);
+	}
+	*s += word_len;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**split_array;
 	int		i;
-	int		j;
-	int		word_len;
 
 	split_array = malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!split_array)
+	if (!s || !split_array)
 		return (NULL);
-	i = 0;
 	while (*s)
 	{
 		while (*s == c)
 			s++;
-		if (*s)
-		{
-			word_len = get_word_len(s, &c);
-			split_array[i] = ft_substr(s, 0, word_len);
-			if (!split_array[i])
-				return (NULL);
-			s += word_len;
-			i++;
-		}
+		if (*s && !add_word(&s, c, split_array, i++))
+			return (NULL);
 	}
 	split_array[i] = NULL;
 	return (split_array);
@@ -76,10 +94,11 @@ char	**ft_split(char const *s, char c)
 
 // int main(void)
 // {
-//     const char *t = "hello world again";
-//     char **p = ft_split(t, ' ');
+//     const char *t = "hello,world,again,test";
+//     char **p = ft_split(t, ',');
 //     printf("%s\n", p[0]);
 //     printf("%s\n", p[1]);
 //     printf("%s\n", p[2]);
+// 	printf("%s\n", p[3]);
 //     return 0; 
 // }
