@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:08:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/23 16:52:24 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/24 09:55:05 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = ft_strlen((char *)s1);
 	while (ft_strchr(set, *s1) && i != '\0')
 		i--;
-	return(ft_substr((char *)s1, 0 i + 1));
+	return (ft_substr((char *)s1, 0 i + 1));
 }
