@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 09:01:57 by vbengea           #+#    #+#             */
-/*   Updated: 2024/09/23 08:42:36 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:08:18 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*memcpy(void *dest, const void *src, size_t n)
 {
