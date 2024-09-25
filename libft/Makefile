@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
+#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 17:45:15 by vbcvali           #+#    #+#              #
-#    Updated: 2024/09/25 11:15:18 by vbengea          ###   ########.fr        #
+#    Updated: 2024/09/25 19:14:13 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,18 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c
 
+BNS_SRCS = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c
+
 OBJS = $(SRCS:%.c=%.o)
+
+BNS_OBJS = $(BNS_SRCS:%.c=%.o)
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -57,8 +68,12 @@ $(NAME):
 
 all: $(NAME)
 
+bonus: $(NAME)
+	gcc $(FLAGS) -c $(BNS_SRCS) -I ./
+	ar rc $(NAME) $(BNS_OBJS)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BNS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
