@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 19:10:01 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/25 20:29:06 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/09/25 20:24:53 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/09/25 20:28:36 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*new;
+	t_list	*tmp;
+
 	if (!lst || !f)
-		return ;
+		return (NULL);
+	new = ft_lstnew(f(lst->content));
+	if (!new)
+		return (NULL);
+	tmp = new;
+	lst = lst->next;
 	while (lst)
 	{
-		f(lst->content);
+		tmp->next = ft_lstnew(f(lst->content));
+		if (!tmp->next)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		tmp = tmp->next;
 		lst = lst->next;
 	}
+	return (new);
 }

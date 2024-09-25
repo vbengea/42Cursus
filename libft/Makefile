@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 17:45:15 by vbcvali           #+#    #+#              #
-#    Updated: 2024/09/25 19:14:13 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/09/25 20:30:23 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,8 @@ BNS_SRCS = ft_lstnew.c \
 			ft_lstadd_back.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
-			ft_lstiter.c
+			ft_lstiter.c \
+			ft_lstmap.c
 
 OBJS = $(SRCS:%.c=%.o)
 
