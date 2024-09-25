@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 17:45:15 by vbcvali           #+#    #+#              #
-#    Updated: 2024/09/24 19:24:52 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/09/25 11:15:18 by vbengea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS = ft_atoi.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
 		ft_strmapi.c \
+		ft_strncmp.c \
 		ft_strnstr.c \
 		ft_strrchr.c \
 		ft_strtrim.c \

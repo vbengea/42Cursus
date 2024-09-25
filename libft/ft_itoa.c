@@ -6,26 +6,23 @@
 /*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:46:57 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/24 10:48:53 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/09/25 09:23:42 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
-static	char	*ft_str_number(int i, int n)
+static char	*ft_str_number(int i, long n)
 {
 	char	*str_num;
 
+	if (n == 0)
+		return (ft_strdup("0"));
 	str_num = (char *)malloc((i + 1) * sizeof(char));
 	if (str_num == NULL)
 		return (NULL);
-	if (n == 0)
-	{
-		str_num[0] = '0';
-		str_num[1] = '\0';
-		return (str_num);
-	}
 	if (n < 0)
 	{
 		str_num[0] = '-';
@@ -34,7 +31,7 @@ static	char	*ft_str_number(int i, int n)
 	str_num[i] = '\0';
 	while (n != 0)
 	{
-		str_num[i--] = n % 10 + '0';
+		str_num[--i] = n % 10 + '0';
 		n = n / 10;
 	}
 	return (str_num);
@@ -42,9 +39,11 @@ static	char	*ft_str_number(int i, int n)
 
 char	*ft_itoa(int n)
 {
-	int	i;
-	int	cpy;
+	int		i;
+	int		cpy;
+	long	nl;
 
+	nl = n;
 	i = 0;
 	cpy = n;
 	while (cpy != 0)
@@ -52,18 +51,18 @@ char	*ft_itoa(int n)
 		cpy = cpy / 10;
 		i++;
 	}
-	return (ft_str_number(i, n));
+	if (nl < 0)
+		i++;
+	return (ft_str_number(i, nl));
 }
-
-// #include <stdio.h>
 
 // int main(void)
 // {
-// 	char *s = ft_itoa(-123456789);
+// 	char *s = ft_itoa(-2147483648);
 // 	int j = 0;
 // 	while (s[j] != '\0')
 // 	{
-// 		printf("%c ", s[j]);
+// 		printf("%c", s[j]);
 // 		j++;
 // 	}
 // 	// printf("%s\n", s);
