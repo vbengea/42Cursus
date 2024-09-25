@@ -6,7 +6,7 @@
 /*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:53:31 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/25 11:18:43 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/09/25 12:57:44 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ char	**ft_split(char const *s, char c)
 	char	**split_array;
 	int		i;
 
+	i = 0;
 	split_array = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!s || !split_array)
 		return (NULL);
