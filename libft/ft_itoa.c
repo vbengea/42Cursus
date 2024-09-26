@@ -6,13 +6,13 @@
 /*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:46:57 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/25 09:23:42 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/09/26 08:33:23 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
+// #include <stdio.h>
 
 static char	*ft_str_number(int i, long n)
 {
