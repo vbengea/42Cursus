@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/30 19:09:38 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/09/30 19:09:05 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_line(t_list *list)
 {
@@ -100,31 +100,27 @@ char	*get_next_line(int fd)
 	return (next_line);
 }
 
-int main(void)
-{
-    int fd;
-	int fd1;
-    char *line;
-    char *line1;
-	char *test0;
-	char *test1;
+// int main(void)
+// {
+// 	int fd;
+// 	int fd1;
+// 	char *line;
+// 	char *line1;
+// 	char *test0;
+// 	char *test1;
 
-    fd = open("test.txt", O_RDONLY);
-	fd1 = open("test1.txt", O_RDONLY);
-    line = get_next_line(fd);
-    line1 = get_next_line(fd);
-	test0 = get_next_line(fd1);
-	test1 = get_next_line(fd1);
-    printf("%s\n", line);
-    printf("%s\n", line1);
-	printf("%s\n", test0);
-	printf("%s\n", test1);
-	free(line);
-	free(line1);
-	free(test0);
-	free(test1);
-    return (0);
-}
+// 	fd = open("test.txt", O_RDONLY);
+// 	fd1 = open("test1.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	line1 = get_next_line(fd);
+// 	test0 = get_next_line(fd1);
+// 	test1 = get_next_line(fd1);
+// 	printf("%s\n", line);
+// 	printf("%s\n", line1);
+// 	printf("%s\n", test0);
+// 	printf("%s\n", test1);
+// 	return (0);
+// }
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
 list or a static variable,
