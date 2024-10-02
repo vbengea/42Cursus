@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/02 19:21:17 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/02 19:23:33 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	found_newline(t_list *list)
 		{
 			if (list->content[i] == '\n')
 				return (1);
-			++i;
+			i++;
 		}
 		list = list->next;
 	}
