@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/02 18:38:46 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/02 19:20:27 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ char	*get_next_line(int fd)
 	static t_list	*list[MAX_FD] = {NULL};
 	char			*next_line;
 
-	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
+	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0
+		|| read(fd, &next_line, 0) < 0)
 		return (NULL);
 	create_list(&list[fd], fd);
 	if (list[fd] == NULL)

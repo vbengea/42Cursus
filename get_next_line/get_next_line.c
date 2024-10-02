@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/30 19:09:05 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/02 19:21:17 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ char	*get_next_line(int fd)
 // }
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
-list or a static variable,
-when a new line is found it stops reading.  
-While strchr != '\n' append to the linked list*/
+list wich is a static variable,
+when a new line (\n) is found it stops reading.
+Counts the chars till new line character is found and 
+appends them into a string.*/
