@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/02 19:25:09 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/03 08:29:16 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-#define MAX_FD 1024
+#include "get_next_line_bonus.h"
 
 char	*get_line(t_list *list)
 {
@@ -132,4 +130,6 @@ char	*get_next_line(int fd)
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
 list wich is a static variable,
-when a new line (\n) is found it stops reading.  */
+when a new line (\n) is found it stops reading.
+Counts the chars till new line character is found and 
+appends them into a string.*/
