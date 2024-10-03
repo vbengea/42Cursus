@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/02 19:23:33 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/03 19:47:22 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*get_line(t_list *list)
 {
@@ -106,19 +106,36 @@ char	*get_next_line(int fd)
 // 	int fd1;
 // 	char *line;
 // 	char *line1;
-// 	char *test0;
-// 	char *test1;
 
 // 	fd = open("test.txt", O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		perror("Error opening test.txt");
+// 		return (1);
+// 	}
+
 // 	fd1 = open("test1.txt", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	line1 = get_next_line(fd);
-// 	test0 = get_next_line(fd1);
-// 	test1 = get_next_line(fd1);
-// 	printf("%s\n", line);
-// 	printf("%s\n", line1);
-// 	printf("%s\n", test0);
-// 	printf("%s\n", test1);
+// 	if (fd1 == -1)
+// 	{
+// 		perror("Error opening test1.txt");
+// 		close(fd);
+// 		return (1);
+// 	}
+
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("test.txt: %s\n", line);
+// 		free(line);
+// 	}
+
+// 	while ((line1 = get_next_line(fd1)) != NULL)
+// 	{
+// 		printf("test1.txt: %s\n", line1);
+// 		free(line1);
+// 	}
+
+// 	close(fd);
+// 	close(fd1);
 // 	return (0);
 // }
 

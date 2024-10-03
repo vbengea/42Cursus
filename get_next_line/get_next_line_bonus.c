@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/02 19:25:09 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/03 19:47:50 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 #define MAX_FD 1024
 
@@ -106,28 +106,41 @@ char	*get_next_line(int fd)
 
 // int main(void)
 // {
-//     int fd;
-//     int fd1;
-//     char *line;
+// 	int fd;
+// 	int fd1;
+// 	char *line;
 // 	char *line1;
-// 	char *line2;
-// 	char *line3;
-// 	fd = open("test.txt", O_RDONLY);
-// 	fd1 = open("test1.txt", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	line1 = get_next_line(fd);
-// 	line2 = get_next_line(fd1);
-// 	line3 = get_next_line(fd1);
-// 	printf("Line 1 >%s\n", line);
-// 	printf("Line 2 >%s\n", line1);
-// 	printf("Line 3 >%s\n", line2);
-// 	printf("Line 4 >%s\n", line3);
-// 	free(line);
-// 	free(line1);
-// 	free(line2);
-// 	free(line3);
 
-//     return (0);
+// 	fd = open("test.txt", O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		perror("Error opening test.txt");
+// 		return (1);
+// 	}
+
+// 	fd1 = open("test1.txt", O_RDONLY);
+// 	if (fd1 == -1)
+// 	{
+// 		perror("Error opening test1.txt");
+// 		close(fd);
+// 		return (1);
+// 	}
+
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("test.txt: %s\n", line);
+// 		free(line);
+// 	}
+
+// 	while ((line1 = get_next_line(fd1)) != NULL)
+// 	{
+// 		printf("test1.txt: %s\n", line1);
+// 		free(line1);
+// 	}
+
+// 	close(fd);
+// 	close(fd1);
+// 	return (0);
 // }
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
