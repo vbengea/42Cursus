@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:08:43 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/30 19:25:29 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/03 18:33:57 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	len_to_new_line(t_list *list)
 {
@@ -88,7 +88,10 @@ void	dealloc(t_list **list, t_list *clean_node, char *buf)
 	}
 	*list = NULL;
 	if (clean_node->content[0])
-		*list = clean_node;
+		{
+			free(buf);
+			free(clean_node);
+		}
 	else
 	{
 		free(buf);

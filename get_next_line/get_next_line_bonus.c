@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/02 19:25:09 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/03 19:09:28 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 #define MAX_FD 1024
 
@@ -128,6 +128,25 @@ char	*get_next_line(int fd)
 // 	free(line3);
 
 //     return (0);
+// }
+// int main(void)
+// {
+// 	int fd;
+// 	char *line;
+
+// 	fd = open("test.txt", O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		perror("Error opening file");
+// 		return (1);
+// 	}
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+// 	}
+// 	close(fd);
+// 	return (0);
 // }
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
