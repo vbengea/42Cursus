@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:21:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/30 20:01:55 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/03 08:21:51 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_list
 }				t_list;
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
 int		len_to_new_line(t_list *list);
 void	copy_str(t_list *list, char *str);
 void	append(t_list **list, char *buf);
