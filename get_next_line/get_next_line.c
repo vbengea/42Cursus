@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/03 19:15:37 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/02 19:23:33 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_line(t_list *list)
 {
@@ -53,10 +53,7 @@ void	append(t_list **list, char *buf)
 	last_node = ft_lstlast(*list);
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
-	{
-		free(buf);
 		return ;
-	}
 	if (last_node == NULL)
 		*list = new_node;
 	else
@@ -103,25 +100,27 @@ char	*get_next_line(int fd)
 	return (next_line);
 }
 
-int main(void)
-{
-	int fd;
-	char *line;
+// int main(void)
+// {
+// 	int fd;
+// 	int fd1;
+// 	char *line;
+// 	char *line1;
+// 	char *test0;
+// 	char *test1;
 
-	fd = open("test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		return (1);
-	}
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-		free(line);
-	}
-	close(fd);
-	return (0);
-}
+// 	fd = open("test.txt", O_RDONLY);
+// 	fd1 = open("test1.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	line1 = get_next_line(fd);
+// 	test0 = get_next_line(fd1);
+// 	test1 = get_next_line(fd1);
+// 	printf("%s\n", line);
+// 	printf("%s\n", line1);
+// 	printf("%s\n", test0);
+// 	printf("%s\n", test1);
+// 	return (0);
+// }
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
 list wich is a static variable,
