@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/03 19:47:22 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/04 08:46:53 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,16 @@ void	append(t_list **list, char *buf)
 	last_node = ft_lstlast(*list);
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
+	{
+		free(buf);
 		return ;
+	}
+	new_node->content = buf;
+	new_node->next = NULL;
 	if (last_node == NULL)
 		*list = new_node;
 	else
 		last_node->next = new_node;
-	new_node->content = buf;
-	new_node->next = NULL;
 }
 
 void	create_list(t_list **list, int fd)
@@ -73,7 +76,7 @@ void	create_list(t_list **list, int fd)
 		if (!buf)
 			return ;
 		char_read = read(fd, buf, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buf);
 			return ;
@@ -85,18 +88,17 @@ void	create_list(t_list **list, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*list;
+	static t_list	*list[MAX_FD] = {NULL};
 	char			*next_line;
 
-	list = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
+	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0
+		|| read(fd, &next_line, 0) < 0)
 		return (NULL);
-	create_list(&list, fd);
-	if (list == NULL)
+	create_list(&list[fd], fd);
+	if (list[fd] == NULL)
 		return (NULL);
-	next_line = get_line(list);
-	clean_list(&list);
-	free(list);
+	next_line = get_line(list[fd]);
+	clean_list(&list[fd]);
 	return (next_line);
 }
 
@@ -141,6 +143,4 @@ char	*get_next_line(int fd)
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
 list wich is a static variable,
-when a new line (\n) is found it stops reading.
-Counts the chars till new line character is found and 
-appends them into a string.*/
+when a new line (\n) is found it stops reading.  */

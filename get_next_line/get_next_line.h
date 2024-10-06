@@ -6,7 +6,7 @@
 /*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:21:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/03 08:21:51 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/04 08:45:35 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 3
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
 # endif
 
 typedef struct s_list

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:08:43 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/03 19:48:54 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/04 08:47:01 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	len_to_new_line(t_list *list)
 		{
 			if (list->content[i] == '\n')
 			{
-				++len;
+				len++;
 				return (len);
 			}
-			++i;
-			++len;
+			i++;
+			len++;
 		}
 		list = list->next;
 	}
@@ -115,7 +115,7 @@ void	clean_list(t_list **list)
 	i = 0;
 	k = 0;
 	while (last_node->content[i] != '\0' && last_node->content[i] != '\n')
-		++i;
+		i++;
 	while (last_node->content[i] != '\0' && last_node->content[++i])
 		buf[k++] = last_node->content[i];
 	buf[k] = '\0';

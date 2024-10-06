@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/03 19:47:50 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/04 08:46:04 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-#define MAX_FD 1024
 
 char	*get_line(t_list *list)
 {

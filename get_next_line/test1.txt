@@ -1,6 +1,0 @@
-Hola, esto
-es un texto
-de prueba
-para el ejercicio
-Get Nex Line
-de 42 Madrid.
