@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 12:21:37 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/06 12:22:01 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/06 12:41:19 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,23 @@ int main()
 	printf("count: %d\n", count);
 	count = printf("This is an unsigned int: %u\n", 42);
 	printf("count: %d\n", count);
+
+
+	ft_printf(" %% ");
+	ft_printf("\n");
+	ft_printf(" %%%% ");
+	ft_printf("\n");
+	ft_printf(" %% %% %% ");
+	ft_printf("\n");
+	ft_printf(" %%  %%  %% ");
+	ft_printf("\n");
+	ft_printf(" %%   %%   %% ");
+	ft_printf("\n");
+	ft_printf("%%");
+	ft_printf("\n");
+	ft_printf("%% %%");
+	ft_printf("\n");
+
+
 	return (0);
 }
