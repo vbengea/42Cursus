@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 11:29:20 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/06 11:32:46 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/06 12:18:41 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	print_format(char c, va_list ap)
 		return (ft_puthex(va_arg(ap, unsigned int), c == 'X'));
 	else if (c == 'p')
 		return (ft_putptr(va_arg(ap, void *)));
+	else if (c == 'u')
+		return (ft_putnbr(va_arg(ap, unsigned int)));
+	else if (c == 'i')
+		return (ft_putnbr(va_arg(ap, int)));
 	else if (c == '%')
 	{
 		write(1, "%", 2);
