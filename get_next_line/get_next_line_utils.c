@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:08:43 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/04 08:47:01 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/07 17:36:42 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,7 @@ void	dealloc(t_list **list, t_list *clean_node, char *buf)
 	}
 	*list = NULL;
 	if (clean_node->content[0])
-	{
-		free(buf);
 		*list = clean_node;
-	}
 	else
 	{
 		free(buf);
