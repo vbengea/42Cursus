@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 10:23:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/07 18:03:12 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/07 18:49:46 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,44 +102,54 @@ char	*get_next_line(int fd)
 	return (next_line);
 }
 
-// int main(void)
-// {
-// 	int fd;
-// 	int fd1;
-// 	char *line;
-// 	char *line1;
+int main(void)
+{
+	int fd;
+	int fd1;
+	char *line;
+	char *line1;
+	int i = 0;
 
-// 	fd = open("test.txt", O_RDONLY);
-// 	if (fd == -1)
-// 	{
-// 		perror("Error opening test.txt");
-// 		return (1);
-// 	}
+	fd = open("quijote.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error opening test.txt");
+		return (1);
+	}
 
-// 	fd1 = open("test1.txt", O_RDONLY);
-// 	if (fd1 == -1)
-// 	{
-// 		perror("Error opening test1.txt");
-// 		close(fd);
-// 		return (1);
-// 	}
+	fd1 = open("quijote1.txt", O_RDONLY);
+	if (fd1 == -1)
+	{
+		perror("Error opening test1.txt");
+		close(fd);
+		return (1);
+	}
 
-// 	while ((line = get_next_line(fd)) != NULL)
-// 	{
-// 		printf("test.txt: %s\n", line);
-// 		free(line);
-// 	}
+	while ((line = get_next_line(fd)) != NULL && (line1 = get_next_line(fd1)) != NULL)
+	{
+		printf("%s\n", line);
+		i++;
+		printf("Lines read: %d\n", i);
+		free(line);
 
-// 	while ((line1 = get_next_line(fd1)) != NULL)
-// 	{
-// 		printf("test1.txt: %s\n", line1);
-// 		free(line1);
-// 	}
+		printf("%s\n", line1);
+		i++;
+		printf("Lines read: %d\n", i);
+		free(line1);
+	}
 
-// 	close(fd);
-// 	close(fd1);
-// 	return (0);
-// }
+	// while ((line1 = get_next_line(fd1)) != NULL)
+	// {
+	// 	printf("%s\n", line1);
+	// 	i++;
+	// 	printf("Lines read: %d\n", i);
+	// 	free(line1);
+	// }
+
+	close(fd);
+	close(fd1);
+	return (0);
+}
 
 /* GNL Read BUFFER_SIZE bytes and append them into a linked 
 list wich is a static variable,
