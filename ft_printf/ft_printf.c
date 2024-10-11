@@ -6,11 +6,37 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 10:41:13 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/06 11:47:53 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/11 19:02:41 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	print_format(char c, va_list ap)
+{
+	if (c == 'c')
+	{
+		write(1, &(char){va_arg(ap, int)}, 1);
+		return (1);
+	}
+	else if (c == 's')
+		return (ft_putstr(va_arg(ap, char *)));
+	else if (c == 'd' || c == 'i')
+		return (ft_putnbr(va_arg(ap, int)));
+	else if (c == 'x' || c == 'X')
+		return (ft_puthex(va_arg(ap, unsigned int), c == 'X'));
+	else if (c == 'p')
+		return (ft_putptr(va_arg(ap, void *)));
+	else if (c == 'u')
+		return (ft_putunsigned(va_arg(ap, unsigned int)));
+	else if (c == '%')
+	{
+		write(1, "%", 1);
+		return (1);
+	}
+	else
+		return (0);
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -21,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	while (*format != '\0')
 	{
-		if (*format == '%') // && (format + 1) != '\0'
+		if (*format == '%')
 			count += print_format(*(++format), ap);
 		else
 		{
