@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_commands.c                                    :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 17:25:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/19 18:16:02 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/19 20:11:58 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,6 @@ void    sb(t_list **b)
 
 void    ss(t_list **a, t_list **b)
 {
-    t_list *tmp;
-
-    if (a && *a && (*a)->next)
-    {
-        tmp = (*a)->next;
-        (*a)->next = tmp->next;
-        tmp->next = *a;
-        *a = tmp;
-    }
-    if (b && *b && (*b)->next)
-    {
-        tmp = (*b)->next;
-        (*b)->next = tmp->next;
-        tmp->next = *b;
-        *b = tmp;
-    }
+    sa(a);
+    sb(b);
 }
