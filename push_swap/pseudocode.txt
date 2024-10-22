@@ -6,3 +6,4 @@ For larger sets of numbers maybe implement turk alrgorithm.
 
 
 
+https://stackoverflow.com/questions/75100698/push-swap-what-is-the-most-efficient-way-to-sort-given-values-using-a-limited-s
