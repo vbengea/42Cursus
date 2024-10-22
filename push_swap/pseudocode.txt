@@ -1,0 +1,8 @@
+
+
+Implement an alrgorithm to sort 3 and 5 numbers. From there scale it.
+
+For larger sets of numbers maybe implement turk alrgorithm.
+
+
+
