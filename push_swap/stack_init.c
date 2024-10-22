@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:29:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/21 17:37:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/22 17:45:18 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_temp.h"
+#include "push_swap.h"
 
 static long	ft_atol(const char *str)
 {

@@ -6,15 +6,15 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 17:25:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/19 20:11:58 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/22 17:45:11 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sa(t_list **a)
+void    sa(t_stack_node **a)
 {
-    t_list *tmp;
+    t_stack_node *tmp;
 
     if (a && *a && (*a)->next)
     {
@@ -25,9 +25,9 @@ void    sa(t_list **a)
     }
 }
 
-void    sb(t_list **b)
+void    sb(t_stack_node **b)
 {
-    t_list *tmp;
+    t_stack_node *tmp;
 
     if (b && *b && (*b)->next)
     {
@@ -38,7 +38,7 @@ void    sb(t_list **b)
     }
 }
 
-void    ss(t_list **a, t_list **b)
+void    ss(t_stack_node **a, t_stack_node **b)
 {
     sa(a);
     sb(b);

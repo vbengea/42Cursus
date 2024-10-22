@@ -6,15 +6,15 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:43:33 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/19 19:00:58 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/22 17:45:57 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    pa(t_list **a, t_list **b)
+void    pa(t_stack_node **a, t_stack_node **b)
 {
-    t_list *tmp;
+    t_stack_node *tmp;
 
     if (b && *b)
     {
@@ -25,9 +25,9 @@ void    pa(t_list **a, t_list **b)
     }
 }
 
-void    pb(t_list **a, t_list **b)
+void    pb(t_stack_node **a, t_stack_node **b)
 {
-    t_list *tmp;
+    t_stack_node *tmp;
 
     if (a && *a)
     {
