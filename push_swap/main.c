@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/22 17:35:08 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/23 12:21:03 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_temp.h"
+#include "push_swap.h"
 
 int main(int argc, char **argv)
 {
@@ -19,10 +19,10 @@ int main(int argc, char **argv)
 
     a = NULL;
     b = NULL;
-    if (argc == 2 || argc == 2 && !argv[1][0])
+    if (argc == 1 || (argc == 2 && !argv[1][0]))
         return (1);
     else if (argc == 2)
-        argv = ft_split(argv[1], ' ');
+        argv = split(argv[1], ' ');
     stack_init(&a, argv + 1, argc == 2); // argv + 1 Because the split function puts '\0' at the beginning of the array
     if (!stack_sorted(a))
     {

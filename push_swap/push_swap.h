@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_temp.h                                   :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/21 17:35:45 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/23 12:20:13 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_TEMP_H
-# define PUSH_SWAP_TEMP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
-#include <stdio.h>
+# include <stdio.h>
 
 typedef struct s_stack_node
 {
@@ -32,7 +32,8 @@ typedef struct s_stack_node
 	struct s_stack_node	*target_node;
 }			t_stack_node;
 
-char	**ft_split(char *s, char c);
+
+char	**split(char *s, char c);
 
 /* Commands */
 void	pa(t_stack_node **a, t_stack_node **b);
@@ -46,5 +47,18 @@ void	ss(t_stack_node **a, t_stack_node **b);
 void	ra(t_stack_node **a);
 void	rb(t_stack_node **b);
 void	rr(t_stack_node **a, t_stack_node **b);
+
+/* Stack functions */
+void	stack_init(t_stack_node **a, char **argv, bool flag);
+void	append_node(t_stack_node **a, int nbr);
+
+/* Error checks */
+void	error_free(t_stack_node **a, char **argv, bool flag);
+bool    error_syntax(char *str);
+bool    error_repetition(t_stack_node **a, int nbr);
+
+/* Free memory */
+void	free_stack(t_stack_node **stack);
+void	free_argv(char **argv);
 
 #endif

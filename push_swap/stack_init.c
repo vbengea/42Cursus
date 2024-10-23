@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:29:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/22 17:45:18 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/23 12:20:05 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static long	ft_atol(const char *str)
 	return (nbr * sign);
 }
 
-void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
+void	stack_init(t_stack_node **a, char **argv, bool flag)
 {
 	long	nbr;
 	int		i;
@@ -44,15 +44,15 @@ void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag);
 		if (error_repetition(*a, (int)nbr))
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag);
 		append_node(a, (int)nbr);
 		i++;
 	}
-	if (flag_argc_2)
-		free_matrix(argv);
+	if (flag)
+		free_argv(argv);
 }
