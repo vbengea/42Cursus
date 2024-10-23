@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 12:20:13 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/23 19:23:38 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_stack_node
 	struct s_stack_node	*target_node;
 }			t_stack_node;
 
-
 char	**split(char *s, char c);
 
 /* Commands */
@@ -53,11 +52,11 @@ void	stack_init(t_stack_node **a, char **argv, bool flag);
 void	append_node(t_stack_node **a, int nbr);
 
 /* Error checks */
-void	error_free(t_stack_node **a, char **argv, bool flag);
-bool    error_syntax(char *str);
-bool    error_repetition(t_stack_node **a, int nbr);
+bool	error_syntax(char *str);
+bool	error_repetition(t_stack_node **a, int nbr);
 
 /* Free memory */
+void	error_free(t_stack_node **a, char **argv, bool flag);
 void	free_stack(t_stack_node **stack);
 void	free_argv(char **argv);
 

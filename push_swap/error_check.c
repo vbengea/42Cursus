@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:44:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 12:19:01 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/23 19:24:40 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ bool	error_syntax(char *str)
 		return (true);
 	if ((str[0] < '0' || str[0] > '9') && str[0] != '-' && str[0] != '+')
 		return (true);
-	else if ((str[0] == '-' || str[0] == '+') && !(str[i] >= '0' && str[i] <= '9'))
+	else if ((str[0] == '-' || str[0] == '+')
+		&& !(str[i] >= '0' && str[i] <= '9'))
 		return (true);
 	while (str[i])
 	{
@@ -66,10 +67,10 @@ void	free_argv(char **argv)
 
 	i = -1;
 	if (argv == NULL || *argv == NULL)
-			return ;
-		while (argv[i])
-			free (argv[i++]);
-		free (argv - 1);
+		return ;
+	while (argv[i])
+		free (argv[i++]);
+	free (argv - 1);
 }
 
 void	error_free(t_stack_node **a, char **argv, bool flag)
