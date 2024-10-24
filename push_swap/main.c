@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:27:32 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/24 08:29:50 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	main(int argc, char **argv)
 	stack_init(&a, argv + 1, argc == 2);
 	if (!stack_sorted(a))
 	{
-		if (stack_size(a) == 2)
+		if (stack_len(a) == 2)
 			sa(&a);
-		else if (stack_size(a) == 3)
+		else if (stack_len(a) == 3)
 			sort_three(&a);
-		else if (stack_size(a) == 4)
+		else if (stack_len(a) == 4)
 			sort_four(&a, &b);
-		else if (stack_size(a) == 5)
+		else if (stack_len(a) == 5)
 			sort_five(&a, &b);
 		else
 			push_swap(&a, &b);
