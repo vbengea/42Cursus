@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:43:33 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:27:58 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/24 10:41:27 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	pa(t_stack_node **a, t_stack_node **b)
 		temp->prev = NULL;
 		*a = temp;
 	}
+	write (1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **a, t_stack_node **b)
@@ -46,4 +47,5 @@ void	pb(t_stack_node **a, t_stack_node **b)
 		temp->prev = NULL;
 		*b = temp;
 	}
+	write (1, "pb\n", 3);
 }

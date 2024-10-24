@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 17:25:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:26:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/24 10:42:54 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	sa(t_stack_node **a)
 		temp->next = *a;
 		*a = temp;
 	}
+	write (1, "sa\n", 3);
 }
 
 void	sb(t_stack_node **b)
@@ -44,10 +45,13 @@ void	sb(t_stack_node **b)
 		tmp->next = *b;
 		*b = tmp;
 	}
+	write (1, "sb\n", 3);
 }
 
 void	ss(t_stack_node **a, t_stack_node **b)
 {
 	sa(a);
 	sb(b);
+	write (1, "sa\n", 3);
+	write (1, "sb\n", 3);
 }

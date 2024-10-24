@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:14:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:22:36 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/24 10:41:03 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	rra(t_stack_node **a)
 		(*a)->prev = last;
 		*a = last;
 	}
+	write (1, "rra\n", 4);
 }
 
 void	rrb(t_stack_node **b)
@@ -46,10 +47,13 @@ void	rrb(t_stack_node **b)
 		(*b)->prev = last;
 		*b = last;
 	}
+	write (1, "rrb\n", 4);
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	rra(a);
 	rrb(b);
+	write (1, "rra\n", 4);
+	write (1, "rrb\n", 4);
 }
