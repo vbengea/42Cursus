@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:23:38 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/24 08:31:18 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	rr(t_stack_node **a, t_stack_node **b);
 /* Stack functions */
 void	stack_init(t_stack_node **a, char **argv, bool flag);
 void	append_node(t_stack_node **a, int nbr);
+int		stack_len(t_stack_node **stack);
 
 /* Error checks */
 bool	error_syntax(char *str);
