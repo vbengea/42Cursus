@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 10:48:25 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/25 11:59:36 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,8 @@ int	main(int argc, char **argv)
 			sa(&a);
 		else if (stack_len(&a) == 3)
 			sort_three(&a);
-		// else if (stack_len(a) == 4)
-		// 	sort_four(&a, &b);
-		// else if (stack_len(a) == 5)
-		// 	sort_five(&a, &b);
-		// else
-		// 	push_swap(&a, &b);
+		else
+			push_swap(&a, &b);
 	}
 	free_stack(&a);
 }

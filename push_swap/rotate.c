@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:09:32 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 10:42:11 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/25 14:00:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,12 @@ void	rr(t_stack_node **a, t_stack_node **b)
 	rb(b);
 	write (1, "ra\n", 3);
 	write (1, "rb\n", 3);
+}
+
+void	rotate(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+{
+	while (*b != cheapest_node->target_node && *a != cheapest_node)
+		rr(a, b);
+	current_position(*a);
+	current_position(*b);
 }

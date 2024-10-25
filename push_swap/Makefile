@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
+#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/10/24 10:21:07 by vbengea          ###   ########.fr        #
+#    Updated: 2024/10/25 14:25:50 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = sort.a
+NAME = push_swap
 
 CC = cc
 
@@ -24,16 +24,20 @@ SRCS =	error_check.c \
 		split.c \
 		stack_init.c \
 		stack_utils.c \
-		swap.c
+		swap.c \
+		find_min_max.c \
+		push_swap.c \
+		init_a.c \
+		init_b.c \
+		temp_utils.c \
+		main.c
 
 OBJS = $(SRCS:.c=.o)
-
-AR = ar rcs
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

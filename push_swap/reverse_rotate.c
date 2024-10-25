@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:14:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 10:41:03 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/25 13:27:09 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,13 @@ void	rrr(t_stack_node **a, t_stack_node **b)
 	rrb(b);
 	write (1, "rra\n", 4);
 	write (1, "rrb\n", 4);
+}
+
+void	reverse_rotate(t_stack_node **a, t_stack_node **b,
+		t_stack_node *cheapest)
+{
+	while (*b != cheapest->target_node && *a != cheapest)
+		rrr(a, b);
+	current_position(*a);
+	current_position(*b);
 }

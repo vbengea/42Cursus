@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:08:14 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 09:20:59 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/25 14:01:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,25 @@ bool	stack_sorted(t_stack_node **stack)
 		temp = temp->next;
 	}
 	return (true);
+}
+
+void	current_position(t_stack_node *stack)
+{
+	int	i;
+	int	median;
+
+	if (!stack)
+		return ;
+	i = 0;
+	median = stack_len(&stack) / 2;
+	while (stack)
+	{
+		stack->current_position = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		i++;
+	}
 }

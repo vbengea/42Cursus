@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 11:15:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/25 13:15:47 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/25 14:34:14 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 		pb(a, b);
 	while (len-- > 3 && !stack_sorted(a))
 	{
-		init_nodes(*a, *b);
+		init_a(*a, *b);
 		move_a_to_b(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
-		init_nodes_b(*a, *b);
+		init_b(*a, *b);
 		move_b_to_a(a, b);
 	}
 	current_position(*a);
