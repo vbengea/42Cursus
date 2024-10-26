@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 08:31:18 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/26 13:52:23 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 	struct s_stack_node	*target_node;
-}			t_stack_node;
+}	t_stack_node;
 
 char	**split(char *s, char c);
 
