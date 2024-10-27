@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/27 11:53:11 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/27 13:35:06 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,41 @@ typedef struct s_stack_node
 	struct s_stack_node	*target_node;
 }	t_stack_node;
 
-char	**split(char *s, char c);
+char			**split(char *s, char c);
 
 /* Commands */
-void	pa(t_stack_node **a, t_stack_node **b);
-void	pb(t_stack_node **a, t_stack_node **b);
-void	rra(t_stack_node **a);
-void	rrb(t_stack_node **b);
-void	rrr(t_stack_node **a, t_stack_node **b);
-void	sa(t_stack_node **a);
-void	sb(t_stack_node **b);
-void	ss(t_stack_node **a, t_stack_node **b);
-void	ra(t_stack_node **a);
-void	rb(t_stack_node **b);
-void	rr(t_stack_node **a, t_stack_node **b);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
 
 /* Stack functions */
-void	stack_init(t_stack_node **a, char **argv, bool flag);
-void	append_node(t_stack_node **a, int nbr);
-int		stack_len(t_stack_node **stack);
-bool	stack_sorted(t_stack_node **stack);
+void			stack_init(t_stack_node **a, char **argv, bool flag);
+void			append_node(t_stack_node **a, int nbr);
+int				stack_len(t_stack_node **stack);
+bool			stack_sorted(t_stack_node **stack);
 t_stack_node	*find_min(t_stack_node **stack);
 t_stack_node	*find_max(t_stack_node **stack);
+void			set_target_a(t_stack_node **a, t_stack_node **b);
+void			set_target_b(t_stack_node **a, t_stack_node **b);
 
 /* Error checks */
-bool	error_syntax(char *str);
-bool	error_repetition(t_stack_node **a, int nbr);
+bool			error_syntax(char *str);
+bool			error_repetition(t_stack_node **a, int nbr);
 
 /* Free memory */
-void	error_free(t_stack_node **a, char **argv, bool flag);
-void	free_stack(t_stack_node **stack);
-void	free_argv(char **argv);
+void			error_free(t_stack_node **a, char **argv, bool flag);
+void			free_stack(t_stack_node **stack);
+void			free_argv(char **argv);
 
 /* Sort functions */
-void	sort_three(t_stack_node **a);
+void			sort_three(t_stack_node **a);
 
 #endif

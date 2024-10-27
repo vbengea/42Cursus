@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/27 11:56:57 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/27 12:28:05 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,18 @@
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	t_stack_node	*b;
-	t_stack_node	*c;
+	//t_stack_node	*b;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
 	stack_init(&a, argv + 1, argc == 2);
-	
-	b = find_min(&a);
-	c = find_max(&a);
 
-	printf("This is the minimum node: %d\n", (*b).value);
-	printf("This is the maximum node: %d\n", (*c).value);
+	printf("This is the minimum node: %d\n", find_min(&a)->value);
+	printf("This is the maximum node: %d\n", find_max(&a)->value);
 
 	free_stack(&a);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 11:27:01 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/27 12:03:00 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/27 13:37:41 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_stack_node	*find_min(t_stack_node **stack)
 			min_node = current;
 		}
 		current = current->next;
-	} 
+	}
 	return (min_node);
 }
 
