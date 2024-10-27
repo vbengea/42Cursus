@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:29:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 12:20:05 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/26 19:44:10 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	stack_init(t_stack_node **a, char **argv, bool flag)
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, flag);
-		if (error_repetition(*a, (int)nbr))
+		if (error_repetition(a, (int)nbr))
 			error_free(a, argv, flag);
 		append_node(a, (int)nbr);
 		i++;

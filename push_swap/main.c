@@ -3,19 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 08:29:50 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/27 11:56:57 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// int	main(int argc, char **argv)
+// {
+// 	t_stack_node	*a;
+// 	//t_stack_node	*b;
+
+// 	a = NULL;
+// 	//b = NULL;
+// 	if (argc == 1 || (argc == 2 && !argv[1][0]))
+// 		return (1);
+// 	else if (argc == 2)
+// 		argv = split(argv[1], ' ');
+// 	stack_init(&a, argv + 1, argc == 2);
+// 	if (!stack_sorted(&a))
+// 	{
+// 		if (stack_len(&a) == 2)
+// 			sa(&a);
+// 		else if (stack_len(&a) == 3)
+// 			sort_three(&a);
+// 		// else if (stack_len(a) == 4)
+// 		// 	sort_four(&a, &b);
+// 		// else if (stack_len(a) == 5)
+// 		// 	sort_five(&a, &b);
+// 		// else
+// 		// 	push_swap(&a, &b);
+// 	}
+// 	free_stack(&a);
+// }
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	t_stack_node	*c;
 
 	a = NULL;
 	b = NULL;
@@ -24,18 +53,13 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
 	stack_init(&a, argv + 1, argc == 2);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else if (stack_len(a) == 4)
-			sort_four(&a, &b);
-		else if (stack_len(a) == 5)
-			sort_five(&a, &b);
-		else
-			push_swap(&a, &b);
-	}
+	
+	b = find_min(&a);
+	c = find_max(&a);
+
+	printf("This is the minimum node: %d\n", (*b).value);
+	printf("This is the maximum node: %d\n", (*c).value);
+
 	free_stack(&a);
+	return (0);
 }

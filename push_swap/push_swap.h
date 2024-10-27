@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/26 13:52:23 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/27 11:53:11 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	rr(t_stack_node **a, t_stack_node **b);
 void	stack_init(t_stack_node **a, char **argv, bool flag);
 void	append_node(t_stack_node **a, int nbr);
 int		stack_len(t_stack_node **stack);
+bool	stack_sorted(t_stack_node **stack);
+t_stack_node	*find_min(t_stack_node **stack);
+t_stack_node	*find_max(t_stack_node **stack);
 
 /* Error checks */
 bool	error_syntax(char *str);
@@ -60,5 +63,8 @@ bool	error_repetition(t_stack_node **a, int nbr);
 void	error_free(t_stack_node **a, char **argv, bool flag);
 void	free_stack(t_stack_node **stack);
 void	free_argv(char **argv);
+
+/* Sort functions */
+void	sort_three(t_stack_node **a);
 
 #endif
