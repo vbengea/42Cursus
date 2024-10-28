@@ -6,13 +6,13 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 17:25:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:26:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/28 20:46:35 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack_node **a)
+void	sa(t_stack_node **a, bool print)
 {
 	t_stack_node	*temp;
 
@@ -27,9 +27,11 @@ void	sa(t_stack_node **a)
 		temp->next = *a;
 		*a = temp;
 	}
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack_node **b)
+void	sb(t_stack_node **b, bool print)
 {
 	t_stack_node	*tmp;
 
@@ -44,10 +46,14 @@ void	sb(t_stack_node **b)
 		tmp->next = *b;
 		*b = tmp;
 	}
+	if (print)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
-	sa(a);
-	sb(b);
+	sa(a, false);
+	sb(b, false);
+		if (print)
+			write(1, "ss\n", 3);
 }

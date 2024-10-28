@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:08:14 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/24 09:20:59 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/28 20:50:43 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,14 @@ bool	stack_sorted(t_stack_node **stack)
 		temp = temp->next;
 	}
 	return (true);
+}
+
+t_stack_node	*get_cheapest(t_stack_node **stack)
+{
+	t_stack_node	*temp;
+
+	temp = *stack;
+	while (!temp->cheapest_to_push)
+		temp = temp->next;
+	return (temp);
 }

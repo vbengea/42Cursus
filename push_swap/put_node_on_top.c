@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 19:48:01 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/28 19:54:57 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/28 20:52:11 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void	put_node_on_top(t_stack_node **stack,
 		if (stack_name == 'a')
 		{
 			if (top->above_median)
-				ra(temp);
+				ra(&temp, true);
 			else
-				rra(temp);
+				rra(&temp, true);
 		}
 		else if (stack_name == 'b')
 		{
 			if (top->above_median)
-				ra(temp);
+				ra(&temp, true);
 			else
-				rra(temp);
+				rra(&temp, true);
 		}
 		temp = temp->next;
 	}

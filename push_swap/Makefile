@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
+#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/10/28 10:05:24 by vbengea          ###   ########.fr        #
+#    Updated: 2024/10/28 20:53:32 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,14 @@ SRCS =	error_check.c \
 		swap.c \
 		main.c \
 		find_min_max.c \
-		set_current_pos.c
+		set_current_pos.c \
+		calculate_price_to_push.c \
+		push_swap.c \
+		rr_rrr_both.c \
+		init.c \
+		move_stacks.c \
+		put_node_on_top.c \
+		set_target.c
 
 OBJS = $(SRCS:.c=.o)
 

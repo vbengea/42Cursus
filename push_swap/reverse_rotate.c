@@ -6,13 +6,13 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:14:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/23 19:22:36 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/28 20:42:03 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack_node **a)
+void	rra(t_stack_node **a, bool print)
 {
 	t_stack_node	*last;
 
@@ -27,9 +27,11 @@ void	rra(t_stack_node **a)
 		(*a)->prev = last;
 		*a = last;
 	}
+	if (print)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack_node **b)
+void	rrb(t_stack_node **b, bool print)
 {
 	t_stack_node	*temp;
 	t_stack_node	*last;
@@ -46,10 +48,14 @@ void	rrb(t_stack_node **b)
 		(*b)->prev = last;
 		*b = last;
 	}
+	if (print)
+		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b)
+void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 {
-	rra(a);
-	rrb(b);
+	rra(a, false);
+	rrb(b, false);
+	if (print)
+		write(1, "rrr\n", 4);
 }
