@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/27 13:35:06 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/28 09:25:04 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_stack_node	*find_min(t_stack_node **stack);
 t_stack_node	*find_max(t_stack_node **stack);
 void			set_target_a(t_stack_node **a, t_stack_node **b);
 void			set_target_b(t_stack_node **a, t_stack_node **b);
+void			set_current_pos(t_stack_node **stack);
 
 /* Error checks */
 bool			error_syntax(char *str);

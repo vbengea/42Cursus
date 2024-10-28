@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/10/27 11:36:56 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/10/28 10:05:24 by vbengea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS =	error_check.c \
 		stack_utils.c \
 		swap.c \
 		main.c \
-		find_min_max.c
+		find_min_max.c \
+		set_current_pos.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/27 12:28:05 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/28 10:11:08 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,15 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
 	stack_init(&a, argv + 1, argc == 2);
+	set_current_pos(&a);
+	while (a)
+	{
+		printf(" Node value: %d\n Above median: %d\n Current index: %d\n", a->value, a->above_median, a->current_position);
+		a = a->next;
+	}
 
-	printf("This is the minimum node: %d\n", find_min(&a)->value);
-	printf("This is the maximum node: %d\n", find_max(&a)->value);
+	//printf("This is the minimum node: %d\n", find_min(&a)->value);
+	//printf("This is the maximum node: %d\n", find_max(&a)->value);
 
 	free_stack(&a);
 	return (0);

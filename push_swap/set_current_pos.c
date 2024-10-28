@@ -6,7 +6,7 @@
 /*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 08:42:06 by vbengea           #+#    #+#             */
-/*   Updated: 2024/10/28 10:05:58 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/10/28 12:21:15 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	set_current_pos(t_stack_node **stack)
 	{
 		temp->current_position = i;
 		if (i < median)
-			temp->above_median = false;
-		else
 			temp->above_median = true;
+		else
+			temp->above_median = false;
 		temp = temp->next;
 		i++;
 	}
