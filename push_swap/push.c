@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:43:33 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/28 20:40:02 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/29 10:46:13 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	pb(t_stack_node **a, t_stack_node **b, bool print)
 		*b = temp;
 	}
 	if (print)
-		write(1, "pb\n", 1);
+		write(1, "pb\n", 3);
 }

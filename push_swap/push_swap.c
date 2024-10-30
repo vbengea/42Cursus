@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:29:46 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/28 20:47:51 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/29 11:27:12 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	void	push_swap_2(t_stack_node **a, t_stack_node **b, int len)
 		len--;
 	}
 	sort_three(a);
-	while (b)
+	while (*b)
 	{
 		init_b(a, b);
 		move_b_to_a(a, b);
