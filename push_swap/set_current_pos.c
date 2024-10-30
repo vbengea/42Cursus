@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 08:42:06 by vbengea           #+#    #+#             */
-/*   Updated: 2024/10/28 18:05:34 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/30 18:15:09 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	set_current_pos(t_stack_node **stack)
 	while (temp)
 	{
 		temp->current_position = i;
-		if (i < median)
+		if (i <= median)
 			temp->above_median = true;
 		else
 			temp->above_median = false;

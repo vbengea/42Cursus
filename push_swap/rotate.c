@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:09:32 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/30 13:23:56 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/10/30 19:13:13 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	rb(t_stack_node **b, bool print)
 		temp->next->prev = NULL;
 		*b = temp->next;
 		last->next = temp;
+		temp->prev = last;
 		temp->next = NULL;
 	}
 	if (print)
