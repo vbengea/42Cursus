@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:43:33 by vbcvali           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/10/24 10:41:27 by vbengea          ###   ########.fr       */
-=======
-/*   Updated: 2024/10/29 10:46:13 by vbcvali          ###   ########.fr       */
->>>>>>> Turk
+/*   Updated: 2024/11/01 13:04:39 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +28,8 @@ void	pa(t_stack_node **a, t_stack_node **b, bool print)
 		temp->prev = NULL;
 		*a = temp;
 	}
-<<<<<<< HEAD
-	write (1, "pa\n", 3);
-=======
 	if (print)
 		write(1, "pa\n", 3);
->>>>>>> Turk
 }
 
 void	pb(t_stack_node **a, t_stack_node **b, bool print)
@@ -56,10 +48,6 @@ void	pb(t_stack_node **a, t_stack_node **b, bool print)
 		temp->prev = NULL;
 		*b = temp;
 	}
-<<<<<<< HEAD
-	write (1, "pb\n", 3);
-=======
 	if (print)
 		write(1, "pb\n", 3);
->>>>>>> Turk
 }
