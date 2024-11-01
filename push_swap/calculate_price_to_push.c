@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:22:01 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 12:22:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:29:25 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	calculate_price_to_push(t_stack_node **a, t_stack_node **b)
 		if (temp_a->target_node->above_median)
 			temp_a->push_price += temp_a->target_node->current_position;
 		else
-			temp_a->push_price += len_b - (temp_a->target_node->current_position);
+			temp_a->push_price += len_b - temp_a->target_node->current_position;
 		temp_a = temp_a->next;
 	}
 }

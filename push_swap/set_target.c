@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:55:43 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 12:16:03 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:26:34 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	set_target_a(t_stack_node **a, t_stack_node **b)
 	{
 		temp_b = *b;
 		best_match = LONG_MIN;
-		target_a = NULL;
 		while (temp_b)
 		{
 			if (temp_b->value < temp_a->value && temp_b->value > best_match)
@@ -34,7 +33,7 @@ void	set_target_a(t_stack_node **a, t_stack_node **b)
 			}
 			temp_b = temp_b->next;
 		}
-		if (target_a == NULL)
+		if (best_match == LONG_MIN)
 			temp_a->target_node = find_max(b);
 		else
 			temp_a->target_node = target_a;
@@ -54,7 +53,6 @@ void	set_target_b(t_stack_node **a, t_stack_node **b)
 	{
 		temp_a = *a;
 		best_match = LONG_MAX;
-		target_b = NULL;
 		while (temp_a)
 		{
 			if (temp_a->value > temp_b->value && temp_a->value < best_match)
@@ -64,7 +62,7 @@ void	set_target_b(t_stack_node **a, t_stack_node **b)
 			}
 			temp_a = temp_a->next;
 		}
-		if (target_b == NULL)
+		if (best_match == LONG_MAX)
 			temp_b->target_node = find_min(a);
 		else
 			temp_b->target_node = target_b;
