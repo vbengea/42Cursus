@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:55:43 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/30 19:04:47 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 11:10:54 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 // 	}
 // }
 
+
+/* THIS IS THE WORKING ONE */
 void	set_target_a(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*temp_a;
@@ -51,11 +53,11 @@ void	set_target_a(t_stack_node **a, t_stack_node **b)
 	while (temp_a)
 	{
 		temp_b = *b;
-		best_match = LONG_MAX;
+		best_match = LONG_MIN;
 		target_a = NULL;
 		while (temp_b)
 		{
-			if (temp_b->value < temp_a->value && temp_b->value < best_match)
+			if (temp_b->value < temp_a->value && temp_b->value > best_match)
 			{
 				best_match = temp_b->value;
 				target_a = temp_b;
@@ -128,6 +130,9 @@ void	set_target_a(t_stack_node **a, t_stack_node **b)
 //         temp_b = temp_b->next;
 //     }
 // }
+
+
+/* THIS IS THE WORKING ONE */
 void	set_target_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*temp_a;
