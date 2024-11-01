@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:09:32 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/30 19:13:13 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:18:11 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	ra(a, false);
 	rb(b, false);
-		if (print)
-			write(1, "rr\n", 3);
+	if (print)
+		write(1, "rr\n", 3);
 }

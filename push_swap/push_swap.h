@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:13:39 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/30 18:38:53 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:09:44 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,5 @@ void			free_argv(char **argv);
 /* Sort functions ///////////////////////////////////////////////////////////*/
 void			sort_three(t_stack_node **a);
 void			push_swap(t_stack_node **a, t_stack_node **b);
-
-
-/* TEMP */
-void print_stack(t_stack_node *a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 17:25:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/28 20:46:35 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:18:26 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
 	sa(a, false);
 	sb(b, false);
-		if (print)
-			write(1, "ss\n", 3);
+	if (print)
+		write(1, "ss\n", 3);
 }
