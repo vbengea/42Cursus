@@ -6,12 +6,21 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 12:51:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 14:06:42 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* If input is invalid, exit the program.
+If there is only 1 argument (argc == 2) i assume is a string
+and call split. 
+Split will start with the first position being '\0'
+If there are more than 2 arguments, argv + 1 will skip the program
+name. If there are only 2 arguments, argv + 1 will also work
+because argv will be the result of split.
+Init the stack with the flag (argc == 2) to know if i need to free
+argv or not. */
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;

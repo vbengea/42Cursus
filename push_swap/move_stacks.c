@@ -6,12 +6,16 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 20:27:21 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/30 19:31:02 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 14:20:54 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* First get the cheapest node. Then check if we can rotate or reverse
+rotate both stacks. Then put the A cheapest node on top and put 
+A target node in stack B on top
+Finally push the node.*/
 void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest;
