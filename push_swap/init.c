@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 12:51:07 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/10/28 19:00:02 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/11/01 12:11:28 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	init_a(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	set_current_pos(a);
+	set_current_pos(b);
+	set_target_a(a, b);
+	calculate_price_to_push(a, b);
+	set_cheapest(a);
+}
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	stack_init(&a, argv + 1, argc == 2);
-	if (!stack_sorted(&a))
-	{
-		if (stack_len(&a) == 2)
-			sa(&a, true);
-		else if (stack_len(&a) == 3)
-			sort_three(&a);
-		else
-			push_swap(&a, &b);
-	}
-	free_stack(&a);
+void	init_b(t_stack_node **a, t_stack_node **b)
+{
+	set_current_pos(a);
+	set_current_pos(b);
+	set_target_b(a, b);
 }

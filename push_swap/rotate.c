@@ -6,13 +6,13 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 20:09:32 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/10/25 14:00:04 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:51:29 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack_node **a)
+void	ra(t_stack_node **a, bool print)
 {
 	t_stack_node	*temp;
 	t_stack_node	*last;
@@ -26,12 +26,14 @@ void	ra(t_stack_node **a)
 		temp->next->prev = NULL;
 		*a = temp->next;
 		last->next = temp;
+		temp->prev = last;
 		temp->next = NULL;
 	}
-	write (1, "ra\n", 3);
+	if (print)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack_node **b)
+void	rb(t_stack_node **b, bool print)
 {
 	t_stack_node	*temp;
 	t_stack_node	*last;
@@ -45,23 +47,17 @@ void	rb(t_stack_node **b)
 		temp->next->prev = NULL;
 		*b = temp->next;
 		last->next = temp;
+		temp->prev = last;
 		temp->next = NULL;
 	}
-	write (1, "rb\n", 3);
+	if (print)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack_node **a, t_stack_node **b)
+void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
-	ra(a);
-	rb(b);
-	write (1, "ra\n", 3);
-	write (1, "rb\n", 3);
-}
-
-void	rotate(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
-{
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
-		rr(a, b);
-	current_position(*a);
-	current_position(*b);
+	ra(a, false);
+	rb(b, false);
+	if (print)
+		write(1, "rr\n", 3);
 }

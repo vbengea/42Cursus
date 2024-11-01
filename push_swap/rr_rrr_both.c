@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rr_rrr_both.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 16:53:22 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 12:51:07 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/10/28 20:20:50 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/10/29 20:45:49 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	while (*b != cheapest->target_node && *a != cheapest)
+		rr(a, b, true);
+	set_current_pos(a);
+	set_current_pos(b);
+}
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	stack_init(&a, argv + 1, argc == 2);
-	if (!stack_sorted(&a))
-	{
-		if (stack_len(&a) == 2)
-			sa(&a, true);
-		else if (stack_len(&a) == 3)
-			sort_three(&a);
-		else
-			push_swap(&a, &b);
-	}
-	free_stack(&a);
+void	reverse_rotate_both(t_stack_node **a, t_stack_node **b,
+			t_stack_node *cheapest)
+{
+	while (*b != cheapest->target_node && *a != cheapest)
+		rrr(a, b, true);
+	set_current_pos(a);
+	set_current_pos(b);
 }

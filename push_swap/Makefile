@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/10/25 14:25:50 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/01 12:51:08 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,19 +25,23 @@ SRCS =	error_check.c \
 		stack_init.c \
 		stack_utils.c \
 		swap.c \
+		main.c \
 		find_min_max.c \
+		set_current_pos.c \
+		calculate_price_to_push.c \
 		push_swap.c \
-		init_a.c \
-		init_b.c \
-		temp_utils.c \
-		main.c
+		rr_rrr_both.c \
+		init.c \
+		move_stacks.c \
+		put_node_on_top.c \
+		set_target.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   put_node_on_top.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 09:26:38 by vbengea           #+#    #+#             */
-/*   Updated: 2024/11/01 12:16:59 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/10/28 19:48:01 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/11/01 12:17:35 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack_node **a)
+void	put_node_on_top(t_stack_node **stack,
+		t_stack_node *top, char stack_name)
 {
-	t_stack_node	*temp;
-
-	temp = *a;
-	if (temp->value > temp->next->value)
+	while (*stack != top)
 	{
-		if (temp->next->value > temp->next->next->value)
+		if (stack_name == 'a')
 		{
-			sa(a, true);
-			rra(a, true);
+			if (top->above_median)
+				ra(stack, true);
+			else
+				rra(stack, true);
 		}
-		else if (temp->value > temp->next->next->value)
-			ra(a, true);
-		else
-			sa(a, true);
-	}
-	else
-	{
-		if (temp->value > temp->next->next->value)
-			rra(a, true);
-		else if (temp->next->value > temp->next->next->value)
+		else if (stack_name == 'b')
 		{
-			sa(a, true);
-			ra(a, true);
+			if (top->above_median)
+				rb(stack, true);
+			else
+				rrb(stack, true);
 		}
 	}
 }
