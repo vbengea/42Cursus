@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:55:43 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 14:17:38 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/02 19:35:02 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	set_target_a(t_stack_node **a, t_stack_node **b)
 }
 /* Almost the same as target A. We need to find the closest bigger
 If not found the target would be the min value. */
+
 void	set_target_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*temp_a;

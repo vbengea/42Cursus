@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:22:01 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 13:25:30 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/02 19:35:12 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	calculate_price_to_push(t_stack_node **a, t_stack_node **b)
 /* Set cheapest iterates through the given stack and initially sets
 all nodes atribute cheapest to false in order to avoid getting a 
 false cheapest. Then iteerates again and sets the cheapest to True. */
+
 void	set_cheapest(t_stack_node **stack)
 {
 	t_stack_node	*cheapest;

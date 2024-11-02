@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:29:46 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/01 14:12:45 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/02 19:34:51 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static	void	minimum_on_top(t_stack_node **a)
 /* While there are more than 3 elements in stack A, push them to B
 in descending order. When 3 are left, sort them and push back 
 from B to A. Refresh current position and bring min node on top.*/
+
 static	void	push_swap_2(t_stack_node **a, t_stack_node **b, int len)
 {
 	while (len > 3)
@@ -47,6 +48,7 @@ static	void	push_swap_2(t_stack_node **a, t_stack_node **b, int len)
 }
 /* Two identical if condition in case there are 4 or 5 arguments
 Call push_swap_2 because together there are more than 25 lines. */
+
 void	push_swap(t_stack_node **a, t_stack_node **b)
 {
 	int	len;

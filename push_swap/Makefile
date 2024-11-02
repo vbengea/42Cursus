@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/11/01 12:51:08 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/02 19:34:19 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,20 +38,41 @@ SRCS =	error_check.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+all: ascii_art $(NAME)
+
+ascii_art:
+	@echo "\033[31m  _   _____  ______   _____   __   ____"
+	@echo "\033[32m | | / / _ )/ ___/ | / / _ | / /  /  _/"
+	@echo "\033[33m | |/ / _  / /__ | |/ / __ |/ /___/ /"  
+	@echo "\033[34m |___/____/\___/ |___/_/ |_/____/___/"  
+	@echo "\033[0m"
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "\033[36mLinking object files to create executable...\033[0m"
+	@echo "\033[32m$(CC) $(CFLAGS) \033[0m"
+	@for obj in $(OBJS); do \
+		echo "\033[32m$$obj \033[0m"; \
+	done
+	@echo "\033[32m-o $(NAME)\033[0m"
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "\033[35mCompiling $<...\033[0m"
+	@echo "\033[32m$(CC) $(CFLAGS) -c $< -o $@\033[0m"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@echo "\033[35mCleaning object files...\033[0m"
+	@for obj in $(OBJS); do \
+		echo "\033[31mrm -f $$obj \033[0m"; \
+	done
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "\033[35mCleaning executable...\033[0m"
+	@echo "\033[31mrm -f $(NAME)\033[0m"
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re ascii_art
