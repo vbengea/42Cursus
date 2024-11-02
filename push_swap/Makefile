@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/11/02 19:34:19 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/02 19:39:50 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,9 @@ fclean: clean
 	@echo "\033[31mrm -f $(NAME)\033[0m"
 	@rm -f $(NAME)
 
-re: fclean all
+clear:
+	clear
 
-.PHONY: all clean fclean re ascii_art
+re: fclean clear all
+
+.PHONY: all clean fclean re ascii_art clear
