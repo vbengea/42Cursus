@@ -3,11 +3,13 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 10:14:15 by vbengea           #+#    #+#              #
-#    Updated: 2024/11/02 19:39:50 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/04 12:16:35 by vbengea          ###   ########.fr        #
 #                                                                              #
+# **************************************************************************** #
+
 # **************************************************************************** #
 
 NAME = push_swap
@@ -38,14 +40,17 @@ SRCS =	error_check.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: ascii_art $(NAME)
+HEADER_PRINTED = .header_printed
 
-ascii_art:
+all: $(HEADER_PRINTED) $(NAME)
+
+$(HEADER_PRINTED):
 	@echo "\033[31m  _   _____  ______   _____   __   ____"
 	@echo "\033[32m | | / / _ )/ ___/ | / / _ | / /  /  _/"
 	@echo "\033[33m | |/ / _  / /__ | |/ / __ |/ /___/ /"  
 	@echo "\033[34m |___/____/\___/ |___/_/ |_/____/___/"  
 	@echo "\033[0m"
+	@touch $(HEADER_PRINTED)
 
 $(NAME): $(OBJS)
 	@echo "\033[36mLinking object files to create executable...\033[0m"
@@ -66,16 +71,18 @@ clean:
 	@for obj in $(OBJS); do \
 		echo "\033[31mrm -f $$obj \033[0m"; \
 	done
+	@rm -f $(HEADER_PRINTED)
 	@rm -f $(OBJS)
 
 fclean: clean
 	@echo "\033[35mCleaning executable...\033[0m"
 	@echo "\033[31mrm -f $(NAME)\033[0m"
 	@rm -f $(NAME)
+	@rm -f $(HEADER_PRINTED)
 
 clear:
 	clear
 
 re: fclean clear all
 
-.PHONY: all clean fclean re ascii_art clear
+.PHONY: all clean fclean re clear
