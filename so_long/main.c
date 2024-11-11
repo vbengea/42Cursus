@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:21:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/08 13:22:33 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/11 11:05:54 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int close_window(void *param)
 int key_press(int keycode, void *param)
 {
 	(void)param;
-	if (keycode == 65361)
+	if (keycode == 32)
 		printf ("Space key pressed! 'Y\n");
 	return (0);
 }
