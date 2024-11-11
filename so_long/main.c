@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:21:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/11 11:05:54 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/11/11 18:40:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int main()
 	mlx_hook(win, 17, 0, close_window, NULL);
 
 	mlx_key_hook(win, key_press, NULL);
+
+	printf("Testing\n");
 
 	mlx_loop(mlx);
 

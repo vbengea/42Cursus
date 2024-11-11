@@ -1,56 +1,51 @@
-# Compiler
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
+#    Updated: 2024/11/11 18:53:04 by vbcvali          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+# Variables
 CC = gcc
+CFLAGS = -Wall -Ilibft -Iminilibx-linux
+LIBFT_DIR = libft
+MINILIBX_DIR = minilibx-linux
+LIBFT_MAKEFILE = $(LIBFT_DIR)/Makefile
+MINILIBX_MAKEFILE = $(MINILIBX_DIR)/Makefile
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+MINILIBX_LIB = $(MINILIBX_DIR)/libmlx.a
+MAIN = main.c
+OUTPUT = main
 
-# Compiler flags
-CFLAGS = -Wall -Wextra -Werror
+# Targets
+all: $(OUTPUT)
 
-# Libraries
-LIBFT = ./libft/libft.a
-MINILIBX = ./minilibx-linux/libmlx.a
+$(OUTPUT): $(LIBFT_LIB) $(MINILIBX_LIB) $(MAIN)
+	$(CC) $(CFLAGS) -o $(OUTPUT) $(MAIN) $(LIBFT_LIB) $(MINILIBX_LIB) -lm -lX11 -lXext
 
-# Source files
-SRCS = main.c
+$(LIBFT_LIB):
+	$(MAKE) -C $(LIBFT_DIR)
 
-# Object files
-OBJS = $(SRCS:.c=.o)
+$(MINILIBX_LIB):
+	$(MAKE) -C $(MINILIBX_DIR)
 
-# Executable name
-NAME = my_program
-
-# Rule to compile the libraries
-$(LIBFT):
-	make -C ./libft
-
-$(MINILIBX):
-	make -C ./minilibx-linux
-
-# Rule to compile the executable
-$(NAME): $(OBJS) $(LIBFT) $(MINILIBX)
-	@echo "Linking $(NAME)..."
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(MINILIBX) -lX11 -lXext
-	@echo "Executable $(NAME) created."
-
-# Rule to compile the object files
-%.o: %.c
-	@echo "Compiling $<..."
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Rule to clean the object files
 clean:
-	rm -f $(OBJS)
-	make -C ./libft clean
-	make -C ./minilibx-linux clean
+	$(MAKE) -C $(LIBFT_DIR) clean
 
-# Rule to clean the object files and the executable
 fclean: clean
-	rm -f $(NAME)
-	make -C ./libft fclean
-	make -C ./minilibx-linux clean
+	rm -f $(LIBFT_LIB) $(MINILIBX_LIB) $(OUTPUT)
+	rm -f minilibx-linux/Makefile.gen
+	rm -f minilibx-linux/test/Makefile.gen
 
-# Rule to recompile everything
-re: fclean $(NAME)
+re: fclean clear all
 
-# Default rule
-all: $(NAME)
+clear:
+	clear
 
-.PHONY: all clean fclean re
+.PHONY: re all clean fclean clear
