@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 17:29:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/26 09:42:20 by vbengea          ###   ########.fr       */
+/*   Created: 2024/09/25 19:10:01 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/11/09 13:22:15 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstiter(t_list_libft *lst, void (*f)(void *))
 {
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!(new))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

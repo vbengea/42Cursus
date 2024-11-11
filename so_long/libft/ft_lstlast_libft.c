@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_libft.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 19:10:01 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/25 20:29:06 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/09/25 18:28:42 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/11/09 13:21:32 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list_libft	*ft_lstlast_libft(t_list_libft *lst)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
 		lst = lst->next;
-	}
+	return (lst);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+         #
+#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 17:45:15 by vbcvali           #+#    #+#              #
-#    Updated: 2024/09/26 09:42:04 by vbengea          ###   ########.fr        #
+#    Updated: 2024/11/09 13:10:08 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,41 +45,45 @@ SRCS = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c
-
-BNS_SRCS = ft_lstnew_bonus.c \
-			ft_lstadd_front_bonus.c \
-			ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c \
-			ft_lstadd_back_bonus.c \
-			ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c \
-			ft_lstiter_bonus.c \
-			ft_lstmap_bonus.c
+		ft_toupper.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast_libft.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
+		ft_printf_utils.c \
+		ft_printf.c \
+		get_next_line.c \
+		get_next_line_utils.c
 
 OBJS = $(SRCS:%.c=%.o)
 
-BNS_OBJS = $(BNS_SRCS:%.c=%.o)
+CFLAGS = -Wall -Werror -Wextra
 
-FLAGS = -Wall -Werror -Wextra
+cc = cc
 
-$(NAME):
-	gcc $(FLAGS) -c $(SRCS) -I ./
-	ar rc $(NAME) $(OBJS)
-
+AR = ar rcs
 all: $(NAME)
 
-bonus: .bonus
-
-.bonus: $(NAME)
-	gcc $(FLAGS) -c $(BNS_SRCS) -I ./
-	ar rc $(NAME) $(BNS_OBJS)
-	@touch .bonus
+$(NAME): $(OBJS)
+	@echo "Creating library $(NAME)"
+	@$(AR) $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS) $(BNS_OBJS)
+	@echo "Cleaning object files"
+	@$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "Cleaning all generated files"
+	@$(RM) $(NAME)
 
-re :fclean all
+re :fclean clear all
+
+clear:
+	clear
+
+.PHONY: all clean fclean re clear

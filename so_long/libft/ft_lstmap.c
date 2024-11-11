@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 20:24:53 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/26 09:42:22 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/11/09 13:26:08 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list_libft	*ft_lstmap(t_list_libft *lst, void *(*f)(void *),
+					void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*tmp;
+	t_list_libft	*new;
+	t_list_libft	*tmp;
 
 	if (!lst || !f)
 		return (NULL);
