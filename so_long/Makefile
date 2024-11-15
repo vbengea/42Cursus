@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/13 19:05:39 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/15 12:24:50 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MINILIBX_LIB = $(MINILIBX_DIR)/libmlx.a
 SRC_DIR = so_long
 SRC_FILES = $(SRC_DIR)/init_map.c \
+			$(SRC_DIR)/is_solvable.c \
 			$(SRC_DIR)/validate_map.c \
+			$(SRC_DIR)/validate_map_2.c \
 			$(SRC_DIR)/main.c
 OUTPUT = main
 

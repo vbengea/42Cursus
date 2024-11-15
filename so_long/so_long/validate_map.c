@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:17:28 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/14 10:38:02 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/15 12:20:54 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	valid_extension(char *file_name)
 
 static	bool	is_rectangle(t_map *map)
 {
-	if (map->same_line_length && (map->lines < map->line_length))
+	if (map->same_line_length && (map->size.y < map->size.x))
 		return (true);
 	return (false);
 }
@@ -63,16 +63,16 @@ static	bool	valid_walls(t_map *map)
 	int	i;
 
 	i = 0;
-	while (i < map->lines)
+	while (i < map->size.y)
 	{
-		if (map->map[i][0] != '1' || map->map[i][map->line_length - 1] != '1')
+		if (map->map[i][0] != '1' || map->map[i][map->size.x - 1] != '1')
 			return (false);
 		i++;
 	}
 	i = 0;
-	while (i < map->line_length)
+	while (i < map->size.x)
 	{
-		if (map->map[0][i] != '1' || map->map[map->lines - 1][i] != '1')
+		if (map->map[0][i] != '1' || map->map[map->size.y - 1][i] != '1')
 			return (false);
 		i++;
 	}
@@ -83,5 +83,7 @@ bool	valid_map(t_map *map)
 {
 	if (!is_rectangle(map) || !valid_start_end(map) || !valid_walls(map))
 		return (false);
-	return (true);
+	if (is_solvable(map))
+		return (true);
+	return (false);
 }
