@@ -6,13 +6,13 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/15 12:24:50 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/17 12:58:54 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 CC = gcc
-CFLAGS = -Wall -Ilibft -Iminilibx-linux
+CFLAGS = -Wall -Wextra -Werror -Ilibft -Iminilibx-linux
 LIBFT_DIR = libft
 MINILIBX_DIR = minilibx-linux
 LIBFT_MAKEFILE = $(LIBFT_DIR)/Makefile
@@ -24,14 +24,22 @@ SRC_FILES = $(SRC_DIR)/init_map.c \
 			$(SRC_DIR)/is_solvable.c \
 			$(SRC_DIR)/validate_map.c \
 			$(SRC_DIR)/validate_map_2.c \
+			$(SRC_DIR)/so_long.c \
+			$(SRC_DIR)/init_mlx.c \
+			$(SRC_DIR)/free_map.c \
 			$(SRC_DIR)/main.c
 OUTPUT = main
 
+DEBUG_FLAGS = -g -fsanitize=address
+LDFLAGS = -L/usr/lib/x86_64-linux-gnu
 # Targets
 all: $(OUTPUT)
 
 $(OUTPUT): $(LIBFT_LIB) $(MINILIBX_LIB) $(SRC_FILES)
-	$(CC) $(CFLAGS) -o $(OUTPUT) $(SRC_FILES) $(LIBFT_LIB) $(MINILIBX_LIB) -lm -lX11 -lXext
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(OUTPUT) $(SRC_FILES) $(LIBFT_LIB) $(MINILIBX_LIB) -lm -lX11 -lXext
+
+sanitize: $(LIBFT_LIB) $(MINILIBX_LIB) $(SRC_FILES)
+	$(CC) $(CFLAGS) $(DEBUG_FLAGS) -o $(OUTPUT) $(SRC_FILES) $(LIBFT_LIB) $(MINILIBX_LIB) -lm -lX11 -lXext
 
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR)
@@ -52,4 +60,4 @@ re: fclean clear all
 clear:
 	clear
 
-.PHONY: re all clean fclean clear
+.PHONY: re all clean fclean clear sanitize

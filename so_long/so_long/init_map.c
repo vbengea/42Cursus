@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:15:11 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/15 12:20:37 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/16 11:32:35 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	void	free_rest(t_map *map, int i)
 	}
 }
 
-/* When assigning the value to MAP->LINE_LENGTH i cast the result to an int
+/* When assigning the value to MAP->SIZE.X i cast the result to an int
 	and subtract one to ignore the new line char at the end of each line */
 void	init_map(t_map *map, char *file)
 {

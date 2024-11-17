@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 12:21:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/17 13:00:07 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/11/16 11:44:23 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/11/16 19:04:40 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char **argv)
-{
-	t_map map;
+// static	int	close_window(void *param)
+// {
+// 	(void)param;
+// 	exit(0);
+// }
 
-	if (argc != 2 || !valid_extension(argv[1]))
-		return (1);
+// void	so_long(t_map *map)
+// {
+// 	void	*mlx;
+// 	void	*win;
 
-	init_map(&map, argv[1]);
+// 	mlx = mlx_init();
 
-	if (!valid_map(&map))
-	{
-		printf("Not a valid map !\n");
-		free_map(&map);
-		exit(0);
-	}
+// 	win = mlx_new_window(mlx, 800, 600, "So Long");
 
-	init_mlx(&map);
+// 	mlx_hook(win, 17, 0, close_window, NULL);
 
-	return (0);
-}
+// 	mlx_loop(mlx);
+// }

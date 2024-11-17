@@ -6,11 +6,31 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:00:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/15 12:20:48 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/15 14:01:10 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+bool	at_least_one_item(t_map *map)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < map->size.y)
+	{
+		x = 0;
+		while (x < map->size.x)
+		{
+			if (map->map[y][x] == 'C')
+				return (true);
+			x++;
+		}
+		y++;
+	}
+	return (false);
+}
 
 void	find_start_end(t_map *map)
 {
