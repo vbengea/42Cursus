@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/17 12:58:54 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/19 19:05:08 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC_FILES = $(SRC_DIR)/init_map.c \
 			$(SRC_DIR)/validate_map_2.c \
 			$(SRC_DIR)/so_long.c \
 			$(SRC_DIR)/init_mlx.c \
-			$(SRC_DIR)/free_map.c \
+			$(SRC_DIR)/free_so_long.c \
 			$(SRC_DIR)/main.c
 OUTPUT = main
 

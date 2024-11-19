@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:17:28 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/16 12:12:04 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/19 18:50:24 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ bool	valid_extension(char *file_name)
 		return (true);
 }
 
-static	bool	is_rectangle(t_map *map)
+static	bool	is_rectangle(t_game *game)
 {
-	if (map->same_line_length && (map->size.y < map->size.x))
+	if (game->same_line_length && (game->size.y < game->size.x))
 		return (true);
 	return (false);
 }
 
-static	bool	valid_start_end(t_map *map)
+static	bool	valid_start_end(t_game *game)
 {
 	int	count_start;
 	int	count_end;
@@ -40,14 +40,14 @@ static	bool	valid_start_end(t_map *map)
 	i = 0;
 	count_end = 0;
 	count_start = 0;
-	while (map->map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (map->map[i][j])
+		while (game->map[i][j])
 		{
-			if (map->map[i][j] == 'P')
+			if (game->map[i][j] == 'P')
 				count_start++;
-			if (map->map[i][j] == 'E')
+			if (game->map[i][j] == 'E')
 				count_end++;
 			j++;
 		}
@@ -58,33 +58,33 @@ static	bool	valid_start_end(t_map *map)
 	return (true);
 }
 
-static	bool	valid_walls(t_map *map)
+static	bool	valid_walls(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	while (i < map->size.y)
+	while (i < game->size.y)
 	{
-		if (map->map[i][0] != '1' || map->map[i][map->size.x - 1] != '1')
+		if (game->map[i][0] != '1' || game->map[i][game->size.x - 1] != '1')
 			return (false);
 		i++;
 	}
 	i = 0;
-	while (i < map->size.x)
+	while (i < game->size.x)
 	{
-		if (map->map[0][i] != '1' || map->map[map->size.y - 1][i] != '1')
+		if (game->map[0][i] != '1' || game->map[game->size.y - 1][i] != '1')
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-bool	valid_map(t_map *map)
+bool	valid_map(t_game *game)
 {
-	if (!is_rectangle(map) || !valid_start_end(map) || !valid_walls(map)
-		|| !at_least_one_item(map))
+	if (!is_rectangle(game) || !valid_start_end(game) || !valid_walls(game)
+		|| !at_least_one_item(game))
 		return (false);
-	if (is_solvable(map))
+	if (is_solvable(game))
 		return (true);
 	return (false);
 }

@@ -6,24 +6,24 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:00:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/15 14:01:10 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/19 18:48:21 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-bool	at_least_one_item(t_map *map)
+bool	at_least_one_item(t_game *game)
 {
 	int	y;
 	int	x;
 
 	y = 0;
-	while (y < map->size.y)
+	while (y < game->size.y)
 	{
 		x = 0;
-		while (x < map->size.x)
+		while (x < game->size.x)
 		{
-			if (map->map[y][x] == 'C')
+			if (game->map[y][x] == 'C')
 				return (true);
 			x++;
 		}
@@ -32,26 +32,26 @@ bool	at_least_one_item(t_map *map)
 	return (false);
 }
 
-void	find_start_end(t_map *map)
+void	find_start_end(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map->map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (map->map[i][j])
+		while (game->map[i][j])
 		{
-			if (map->map[i][j] == 'P')
+			if (game->map[i][j] == 'P')
 			{
-				map->start.x = j;
-				map->start.y = i;
+				game->start.x = j;
+				game->start.y = i;
 			}
-			if (map->map[i][j] == 'E')
+			if (game->map[i][j] == 'E')
 			{
-				map->end.x = j;
-				map->end.y = i;
+				game->end.x = j;
+				game->end.y = i;
 			}
 			j++;
 		}
@@ -59,7 +59,7 @@ void	find_start_end(t_map *map)
 	}
 }
 
-bool	check_items_and_exit(t_map *map, bool **visited)
+bool	check_items_and_exit(t_game *game, bool **visited)
 {
 	bool	all_items_collected;
 	bool	exit_reachable;
@@ -69,14 +69,14 @@ bool	check_items_and_exit(t_map *map, bool **visited)
 	all_items_collected = true;
 	exit_reachable = false;
 	y = 0;
-	while (y < map->size.y)
+	while (y < game->size.y)
 	{
 		x = 0;
-		while (x < map->size.x)
+		while (x < game->size.x)
 		{
-			if (map->map[y][x] == 'C' && !visited[y][x])
+			if (game->map[y][x] == 'C' && !visited[y][x])
 				all_items_collected = false;
-			if (map->map[y][x] == 'E' && visited[y][x])
+			if (game->map[y][x] == 'E' && visited[y][x])
 				exit_reachable = true;
 			x++;
 		}

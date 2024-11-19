@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_map.c                                         :+:      :+:    :+:   */
+/*   free_so_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 12:58:12 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/17 12:58:32 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/19 19:06:40 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(t_map *map)
+void	free_map(t_game *map)
 {
 	int i;
 
@@ -23,4 +23,11 @@ void	free_map(t_map *map)
 		i++;
 	}
 	free (map->map);
+}
+void	free_mlx(t_game *game)
+{
+	mlx_destroy_window(game->vars.mlx, game->vars.win);
+	mlx_destroy_display(game->vars.mlx);
+	free (game->vars.mlx);
+	game->vars.mlx = NULL;
 }
