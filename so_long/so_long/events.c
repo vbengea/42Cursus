@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 11:44:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/19 19:13:11 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/11/19 19:12:00 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/11/19 19:12:22 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	so_long(t_game *game)
+int	key_press(int keycode, void *param)
 {
-	mlx_hook(game->vars.win, 17, 0, close_window, game);
-	mlx_key_hook(game->vars.win, key_press, NULL);
+	(void)param;
+	if (keycode == 32)
+		printf ("Space key pressed! 'Y\n");
+	return (0);
+}
+
+int	close_window(void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	mlx_loop_end(game->vars.mlx);
+	return (0);
 }
