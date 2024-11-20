@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/19 19:12:48 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/20 10:11:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
+
+# define WIDTH 800
+# define HEIGHT 600
+
+typedef struct s_img
+{
+	void	*img;
+	int		w;
+	int		h;
+}	t_img;
 
 typedef struct s_point
 {
@@ -40,6 +50,7 @@ typedef struct s_game
 	t_point	size;
 	t_point	start;
 	t_point	end;
+	t_img	bg;
 }	t_game;
 
 bool	valid_extension(char *file_name);
