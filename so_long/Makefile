@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/19 19:13:30 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/21 20:05:30 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRC_FILES = $(SRC_DIR)/init_map.c \
 			$(SRC_DIR)/init_mlx.c \
 			$(SRC_DIR)/free_so_long.c \
 			$(SRC_DIR)/events.c \
+			$(SRC_DIR)/render.c \
+			$(SRC_DIR)/load_xpm.c \
 			$(SRC_DIR)/main.c
 OUTPUT = main
 

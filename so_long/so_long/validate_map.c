@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:17:28 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 12:42:59 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:05:50 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ bool	valid_map(t_game *game)
 	// 	printf("No items!\n");
 	// if (!is_solvable(game))
 	// 	printf("Not solvable!\n");
+	// if (!valid_chars(game))
+	// 	printf("Not valid chars!\n");
 	// printf("Same line length: %d\n", game->same_line_length);
 	// printf("Size X: %d\n", game->size.x);
 	// printf("Size Y: %d\n", game->size.y);

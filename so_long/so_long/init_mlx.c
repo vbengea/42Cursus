@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 11:49:36 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/20 19:09:56 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 20:04:51 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_mlx(t_game *game)
 		free_map(game);
 		exit(0);
 	}
+	load_xpm(game);
 	so_long(game);
 	mlx_loop(game->vars.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:00:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 12:48:36 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:05:10 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,18 @@ bool	valid_chars(t_game *game)
 	int	j;
 
 	i = 0;
-	while (game->map[i])
+	while (i < game->size.y)
 	{
 		j = 0;
-		while (game->map[i][j])
+		while (j < game->size.x)
 		{
-			if (game->map[i][j] != '1' || game->map[i][j] != 'C' 
-				|| game->map[i][j] != 'E' || game->map[i][j] != 'P' 
-				|| game->map[i][j] != '0')
+			if (game->map[i][j] != '1' && game->map[i][j] != 'C' 
+				&& game->map[i][j] != 'E' && game->map[i][j] != 'P' 
+				&& game->map[i][j] != '0')
 				return (false);
+			j++;
 		}
+		i++;
 	}
 	return (true);
 }

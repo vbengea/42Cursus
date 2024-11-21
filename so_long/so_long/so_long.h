@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 12:41:25 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 20:05:13 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ typedef struct s_game
 	t_point	end;
 	t_img	bg;
 	t_img	player;
+	t_img	wall;
+	t_img	item;
+	t_img	finish;
 }	t_game;
 
 bool	valid_extension(char *file_name);
@@ -68,8 +71,18 @@ bool	valid_chars(t_game *game);
 
 /* EVENTS */
 int	key_press(int keycode, void *param);
+int	close_window(void *param);
+
+/* LOAD XPM */
+void	load_xpm(t_game *game);
+
+/* RENDER */
+void	render_player(t_game *game);
+void	render_walls(t_game *game);
+void	render_items(t_game *game);
+void	render_bg(t_game *game);
+void	render_finish(t_game *game);
 
 void	so_long(t_game *game);
-int	close_window(void *param);
 
 #endif
