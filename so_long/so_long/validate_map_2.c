@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:00:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/19 18:48:21 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 12:48:36 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,24 @@ bool	check_items_and_exit(t_game *game, bool **visited)
 		y++;
 	}
 	return (all_items_collected && exit_reachable);
+}
+
+bool	valid_chars(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] != '1' || game->map[i][j] != 'C' 
+				|| game->map[i][j] != 'E' || game->map[i][j] != 'P' 
+				|| game->map[i][j] != '0')
+				return (false);
+		}
+	}
+	return (true);
 }

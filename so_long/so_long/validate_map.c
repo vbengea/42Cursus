@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:17:28 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/20 18:36:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 12:42:59 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static	bool	valid_walls(t_game *game)
 bool	valid_map(t_game *game)
 {
 	if (!is_rectangle(game) || !valid_start_end(game) || !valid_walls(game)
-		|| !at_least_one_item(game))
+		|| !at_least_one_item(game) || !valid_chars(game))
 		return (false);
 	if (is_solvable(game))
 		return (true);

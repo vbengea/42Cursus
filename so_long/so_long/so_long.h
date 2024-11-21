@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/20 18:56:28 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/21 12:41:25 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ bool	check_items_and_exit(t_game *game, bool **visited);
 void	init_mlx(t_game *game);
 void	free_map(t_game *map);
 void	free_mlx(t_game *game);
+bool	valid_chars(t_game *game);
 
 /* EVENTS */
 int	key_press(int keycode, void *param);
