@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:15:11 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 11:49:19 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 18:43:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ static	int	read_lines(char *file)
 	}
 	close(fd);
 	return (lines);
+}
+
+static	void	count_items(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	game->items = 0;
+	while (i < game->size.y)
+	{
+		j = 0;
+		while (j < game->size.x)
+		{
+			if (game->map[i][j] == 'C')
+				game->items++;
+			j++;
+		}
+		i++;
+	}
 }
 
 /* When assigning the value to MAP->SIZE.X i cast the result to an int
@@ -61,5 +81,6 @@ void	init_map(t_game *game, char *file)
 			game->same_line_length = false;
 		i++;
 		game->size.y++;
+		count_items(game);
 	}
 }

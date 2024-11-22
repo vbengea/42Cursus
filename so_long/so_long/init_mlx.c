@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 11:49:36 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 12:28:50 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 18:32:09 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_mlx(t_game *game)
 	}
 	if (!valid_resolution(game))
 	{
-		perror("Map too big for this screen!\n");
+		perror("Error: Map too big for this screen!\n");
 		free_map(game);
 		exit(0);
 	}

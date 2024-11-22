@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 11:22:14 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:46:09 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
+
+# define KEY_ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
 
 typedef struct s_img
 {
@@ -46,6 +52,8 @@ typedef struct s_game
 	int		fd;
 	bool	same_line_length;
 	char	**map;
+	int		items;
+	int		moves;
 	t_vars	vars;
 	t_point	size;
 	t_point	start;
@@ -75,6 +83,12 @@ int	close_window(void *param);
 
 /* LOAD XPM */
 void	load_xpm(t_game *game);
+
+/* MOVEMENTS */
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
 
 /* RENDER */
 void	render_player(t_game *game);

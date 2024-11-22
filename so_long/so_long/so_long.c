@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 11:44:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 10:35:06 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:47:22 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ static void render_full_bg(t_game *game)
 
 void	so_long(t_game *game)
 {
+	game->moves = 0;
 	mlx_hook(game->vars.win, 17, 0, close_window, game);
-	mlx_key_hook(game->vars.win, key_press, game);
+	mlx_hook(game->vars.win, 2, 1L<<0, key_press, game);
 	render_full_bg(game);
 	render_bg(game);
 	render_player(game);
