@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 12:58:12 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 10:25:36 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:52:44 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_map(t_game *map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < map->size.y)
@@ -24,6 +24,7 @@ void	free_map(t_game *map)
 	}
 	free (map->map);
 }
+
 void	free_mlx(t_game *game)
 {
 	mlx_destroy_image(game->vars.mlx, game->bg.img);

@@ -6,15 +6,15 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:21:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 19:45:09 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:56:26 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_game game;
+	t_game	game;
 
 	if (argc != 2 || !valid_extension(argv[1]))
 		return (0);
@@ -30,4 +30,3 @@ int main(int argc, char **argv)
 	free_mlx(&game);
 	return (0);
 }
-

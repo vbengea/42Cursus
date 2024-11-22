@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:22:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 20:10:24 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:55:44 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	render_player(t_game *game)
 {
 	int	i;
 	int	j;
-	int offset;
+	int	offset;
 
 	offset = (64 - 32) / 2;
 	i = 0;

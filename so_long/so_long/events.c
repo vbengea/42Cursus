@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:12:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 19:43:17 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:57:21 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	key_press(int keycode, void *param)
 {
 	t_game	*game;
+
 	game = (t_game *)param;
 	if (keycode == KEY_ESC)
 		mlx_loop_end(game->vars.mlx);
@@ -37,4 +38,3 @@ int	close_window(void *param)
 	mlx_loop_end(game->vars.mlx);
 	return (0);
 }
-

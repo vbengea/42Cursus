@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 19:46:09 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 19:56:03 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	free_mlx(t_game *game);
 bool	valid_chars(t_game *game);
 
 /* EVENTS */
-int	key_press(int keycode, void *param);
-int	close_window(void *param);
+int		key_press(int keycode, void *param);
+int		close_window(void *param);
 
 /* LOAD XPM */
 void	load_xpm(t_game *game);
