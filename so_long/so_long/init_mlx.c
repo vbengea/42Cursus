@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 11:49:36 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 20:04:51 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 12:28:50 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,24 @@
 void	init_mlx(t_game *game)
 {
 	game->vars.mlx = mlx_init();
-
-	if (game->vars.mlx == NULL) {
-		fprintf(stderr, "Error: Failed to initialize MiniLibX\n");
+	if (game->vars.mlx == NULL)
+	{
+		perror("Error: Failed to initialize MiniLibX\n");
+		free_map(game);
+		exit(0);
+	}
+	if (!valid_resolution(game))
+	{
+		perror("Map too big for this screen!\n");
 		free_map(game);
 		exit(0);
 	}
 	game->vars.win = mlx_new_window(game->vars.mlx, game->size.x * 64, game->size.y * 64, "My first window");
-	if (game->vars.win == NULL) {
-		fprintf(stderr, "Error: Failed to create a new window\n");
+	if (game->vars.win == NULL)
+	{
+		perror("Error: Failed to create a new window\n");
 		free_map(game);
+		free (game->vars.mlx);
 		exit(0);
 	}
 	load_xpm(game);

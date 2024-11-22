@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 20:05:13 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 11:22:14 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void	render_bg(t_game *game);
 void	render_finish(t_game *game);
 
 void	so_long(t_game *game);
+bool	valid_resolution(t_game *game);
 
 #endif

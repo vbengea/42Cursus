@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:00:25 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 18:05:10 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 12:34:55 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,21 @@ bool	valid_chars(t_game *game)
 			j++;
 		}
 		i++;
+	}
+	return (true);
+}
+
+bool	valid_resolution(t_game *game)
+{
+	int	width;
+	int	height;
+
+	mlx_get_screen_size(game->vars.mlx, &width, &height);
+	if ((game->size.x * 64) > width || (game->size.y * 64) > height)
+	{
+		mlx_destroy_display(game->vars.mlx);
+		free (game->vars.mlx);
+		return (false);
 	}
 	return (true);
 }

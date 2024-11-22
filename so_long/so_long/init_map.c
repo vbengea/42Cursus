@@ -6,20 +6,32 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:15:11 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/19 18:42:31 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 11:49:19 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static	void	free_rest(t_game *game, int i)
+static	int	read_lines(char *file)
 {
-	game->map[i] = NULL;
-	while (++i < 20)
+	int		fd;
+	int		lines;
+	char	*line;
+
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		exit(1);
+	lines = 0;
+	while (true)
 	{
-		game->map[i] = NULL;
-		free (game->map[i]);
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		free(line);
+		lines++;
 	}
+	close(fd);
+	return (lines);
 }
 
 /* When assigning the value to MAP->SIZE.X i cast the result to an int
@@ -28,8 +40,8 @@ void	init_map(t_game *game, char *file)
 {
 	int	i;
 
+	game->map = malloc(sizeof(char *) * (read_lines(file) + 1));
 	game->fd = open(file, O_RDONLY);
-	game->map = malloc(sizeof(char *) * 20);
 	if (game->fd == -1 || !game->map)
 	{
 		close(game->fd);
@@ -50,5 +62,4 @@ void	init_map(t_game *game, char *file)
 		i++;
 		game->size.y++;
 	}
-	free_rest(game, i);
 }

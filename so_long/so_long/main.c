@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:21:00 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/21 12:47:59 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/22 12:03:08 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main(int argc, char **argv)
 		free_map(&game);
 		exit(0);
 	}
+	else
+		printf("Valid map !\n");
 
 	init_mlx(&game);
 
