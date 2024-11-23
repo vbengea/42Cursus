@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/22 19:02:40 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/23 10:47:48 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC_FILES = $(SRC_DIR)/init_map.c \
 			$(SRC_DIR)/load_xpm.c \
 			$(SRC_DIR)/movements.c \
 			$(SRC_DIR)/main.c
-OUTPUT = main
+OUTPUT = game
 
 DEBUG_FLAGS = -g -fsanitize=address
 LDFLAGS = -L/usr/lib/x86_64-linux-gnu

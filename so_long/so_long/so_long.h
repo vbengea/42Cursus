@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:31:30 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 19:56:03 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/23 10:26:24 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
-
-# define WIDTH 1920
-# define HEIGHT 1080
 
 # define KEY_ESC 65307
 # define KEY_W 119
@@ -65,21 +62,26 @@ typedef struct s_game
 	t_img	finish;
 }	t_game;
 
+/* VALIDATE MAP */
 bool	valid_extension(char *file_name);
 bool	valid_map(t_game *game);
 bool	is_solvable(t_game *game);
-void	init_map(t_game *game, char *file_name);
 bool	at_least_one_item(t_game *game);
 void	find_start_end(t_game *game);
 bool	check_items_and_exit(t_game *game, bool **visited);
-void	init_mlx(t_game *game);
-void	free_map(t_game *map);
-void	free_mlx(t_game *game);
 bool	valid_chars(t_game *game);
+bool	valid_resolution(t_game *game);
+
+/* INIT */
+void	init_mlx(t_game *game);
+void	init_map(t_game *game, char *file_name);
+
+/* FREE FUNCTIONS */
+void	free_mlx(t_game *game);
+void	free_map(t_game *map);
 
 /* EVENTS */
 int		key_press(int keycode, void *param);
-int		close_window(void *param);
 
 /* LOAD XPM */
 void	load_xpm(t_game *game);
@@ -97,7 +99,7 @@ void	render_items(t_game *game);
 void	render_bg(t_game *game);
 void	render_finish(t_game *game);
 
+/* GAME */
 void	so_long(t_game *game);
-bool	valid_resolution(t_game *game);
 
 #endif
