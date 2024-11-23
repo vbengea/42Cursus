@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 18:45:23 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/23 10:47:48 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/11/23 11:24:30 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT_MAKEFILE = $(LIBFT_DIR)/Makefile
 MINILIBX_MAKEFILE = $(MINILIBX_DIR)/Makefile
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MINILIBX_LIB = $(MINILIBX_DIR)/libmlx.a
-SRC_DIR = so_long
+SRC_DIR = src
 SRC_FILES = $(SRC_DIR)/init_map.c \
 			$(SRC_DIR)/is_solvable.c \
 			$(SRC_DIR)/validate_map.c \
@@ -32,7 +32,7 @@ SRC_FILES = $(SRC_DIR)/init_map.c \
 			$(SRC_DIR)/load_xpm.c \
 			$(SRC_DIR)/movements.c \
 			$(SRC_DIR)/main.c
-OUTPUT = game
+OUTPUT = so_long
 
 DEBUG_FLAGS = -g -fsanitize=address
 LDFLAGS = -L/usr/lib/x86_64-linux-gnu
