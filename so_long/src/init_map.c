@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:15:11 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/22 18:43:04 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/11/24 18:28:00 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	init_map(t_game *game, char *file)
 			game->same_line_length = false;
 		i++;
 		game->size.y++;
-		count_items(game);
 	}
+	count_items(game);
 }
