@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 18:08:25 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/30 19:26:02 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/12/03 11:20:09 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ BIN_DIR = bin
 NAME = $(BIN_DIR)/pipex
 
 SRCS = $(SRC_DIR)/main.c \
-		$(SRC_DIR)/pipex.c
+		$(SRC_DIR)/pipex.c \
+		$(SRC_DIR)/utils.c
 
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
