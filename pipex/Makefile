@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 18:08:25 by vbcvali           #+#    #+#              #
-#    Updated: 2024/12/03 11:20:09 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/12/04 09:39:31 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src
+SRC_BONUS_DIR = src_bonus
 INCL_DIR = incl
 LIB_DIR = incl/libft
 LIB_MAKEFILE = $(LIB_DIR)/Makefile
@@ -31,6 +32,14 @@ SRCS = $(SRC_DIR)/main.c \
 
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
+BONUS_SRCS = $(SRC_BONUS_DIR)/main_bonus.c \
+				$(SRC_BONUS_DIR)/utils_bonus.c \
+				$(SRC_BONUS_DIR)/pipex_bonus.c
+
+BONUS_OBJS = $(patsubst $(SRC_BONUS_DIR)/%.c, $(OBJ_DIR)/%.o, $(BONUS_SRCS))
+
+BONUS_NAME = $(BIN_DIR)/pipex_bonus
+
 $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
 
 all: $(LIB) $(NAME)
@@ -41,8 +50,16 @@ $(LIB):
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR)/%.o: $(SRC_BONUS_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS) $(LIB)
 	$(CC) $(OBJS) $(LIB) -o $@
+
+bonus: $(LIB) $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS) $(LIB)
+	$(CC) $(BONUS_OBJS) $(LIB) -o $@
 
 clean:
 	$(MAKE) -C $(LIB_DIR) clean
@@ -50,7 +67,7 @@ clean:
 
 fclean: clean
 	$(MAKE) -C $(LIB_DIR) fclean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
