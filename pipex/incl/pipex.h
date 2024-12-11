@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:35:45 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/03 11:34:45 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:20:28 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@
 # include <errno.h>
 # include <string.h>
 
-typedef struct
+typedef struct s_pipex
 {
 	char	***splitted_commands;
 	char	**splitted_path;
 	char	*full_path;
 	int		pipefd[2];
-	int		prev_pipefd[2];
 	pid_t	pid;
 	int		infile;
 	int		outfile;
+	bool	here_doc;
 }	t_pipex;
 
 char	*find_path(char **env);

@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:53:19 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/03 12:20:18 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/11 16:23:10 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,7 @@ void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 
 void	child_process(t_pipex *pipex, int argc, int i, char **env)
 {
-	if (i == 0)
-	{
-		dup2(pipex->infile, STDIN_FILENO);
-		close(pipex->infile);
-	}
-	else
-	{
-		dup2(pipex->prev_pipefd[0], STDIN_FILENO);
-		close(pipex->prev_pipefd[0]);
-	}
+	dup2(pipex->infile, STDIN_FILENO);
 	if (i == argc - 4)
 	{
 		dup2(pipex->outfile, STDOUT_FILENO);
@@ -64,14 +55,13 @@ void	child_process(t_pipex *pipex, int argc, int i, char **env)
 
 void	parent_process(t_pipex *pipex, int i, int argc)
 {
+	close (pipex->pipefd[1]);
 	if (i > 0)
-		close(pipex->prev_pipefd[0]);
+		close (pipex->infile);
 	if (i < argc - 4)
-	{
-		pipex->prev_pipefd[0] = pipex->pipefd[0];
-		pipex->prev_pipefd[1] = pipex->pipefd[1];
-	}
-	close(pipex->pipefd[1]);
+		pipex->infile = pipex->pipefd[0];
+	else
+		close (pipex->pipefd[0]);
 }
 
 void	exec_command(t_pipex *pipex, int i, char **env)

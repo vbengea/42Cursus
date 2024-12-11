@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 18:08:25 by vbcvali           #+#    #+#              #
-#    Updated: 2024/12/04 09:39:31 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/12/11 16:41:17 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ clean:
 
 fclean: clean
 	$(MAKE) -C $(LIB_DIR) fclean
-	rm -rf $(NAME) $(BONUS_NAME)
+	rm -rf $(NAME) $(BONUS_NAME) $(BIN_DIR) $(OBJ_DIR)
 
 re: fclean all
 
