@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:13:12 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/03 11:16:57 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/11 18:24:19 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,21 @@ char	*get_full_path(char **splitted_path, char *command)
 	char	*full;
 	int		i;
 
+	if (ft_strchr(command, '/') && (access(command, X_OK) == 0))
+		return (ft_strdup(command));
 	i = 0;
-	while (splitted_path[i])
+	if (splitted_path)
 	{
-		temp = ft_strjoin(splitted_path[i], "/");
-		full = ft_strjoin(temp, command);
-		free (temp);
-		if (access(full, X_OK) == 0)
-			return (full);
-		i++;
+		while (splitted_path[i])
+		{
+			temp = ft_strjoin(splitted_path[i], "/");
+			full = ft_strjoin(temp, command);
+			free (temp);
+			if (access(full, X_OK) == 0)
+				return (full);
+			free (full);
+			i++;
+		}
 	}
 	return (NULL);
 }
