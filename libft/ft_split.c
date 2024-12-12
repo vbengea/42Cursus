@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbengea <vbengea@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:53:31 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/09/25 12:57:44 by vbengea          ###   ########.fr       */
+/*   Updated: 2024/12/12 08:33:32 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static	int	count_words(char const *s, char c)
 	int	count;
 	int	in_word;
 
+	if (!s)
+		return (NULL);
 	count = 0;
 	in_word = 0;
 	while (*s)
@@ -78,9 +80,11 @@ char	**ft_split(char const *s, char c)
 	char	**split_array;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	split_array = malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!s || !split_array)
+	if (!split_array)
 		return (NULL);
 	while (*s)
 	{
