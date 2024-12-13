@@ -6,11 +6,34 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:34:27 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/11 19:05:04 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/13 14:12:04 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pipex.h"
+
+void	read_here_doc(t_pipex *pipex, char *limiter)
+{
+	char	*buffer;
+	size_t	len_limiter;
+	size_t	len_buffer;
+
+	if (pipex->infile < 0 || pipex->outfile < 0)
+		return ;
+	len_limiter = ft_strlen(limiter);
+	while (true)
+	{
+		buffer = get_next_line(STDIN_FILENO);
+		len_buffer = ft_strlen(buffer);
+		if (len_buffer - 1 == len_limiter
+			&& ft_strncmp(buffer, limiter, len_limiter) == 0)
+			break ;
+		write(pipex->infile, buffer, len_buffer);
+		free (buffer);
+	}
+	free (buffer);
+	close (pipex->infile);
+}
 
 void	free_all(t_pipex *pipex)
 {

@@ -6,13 +6,13 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 18:08:25 by vbcvali           #+#    #+#              #
-#    Updated: 2024/12/11 16:41:17 by vbcvali          ###   ########.fr        #
+#    Updated: 2024/12/11 18:52:11 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC_DIR = src
 SRC_BONUS_DIR = src_bonus

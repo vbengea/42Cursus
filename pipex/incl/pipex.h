@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:35:45 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/11 17:20:28 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/13 14:15:37 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env);
 void	create_pipe(t_pipex *pipex);
 void	create_fork(t_pipex *pipex);
 char	*get_full_path(char **splitted_path, char *command);
-
+void	read_here_doc(t_pipex *pipex, char *limiter);
 
 #endif

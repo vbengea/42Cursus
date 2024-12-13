@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:53:19 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/11 18:16:03 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/13 14:17:05 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 {
 	pipex->splitted_path = ft_split(find_path(env), ':');
-	// By now leave this part commented.
-	// In case the split fails, the function get_full_path will return NULL
-	// So there is no need to exit early here.
-	// if (!pipex->splitted_path)
-	// {
-	// 	perror("Split path");
-	// 	exit(12);
-	// }
 	pipex->splitted_commands = split_commands(argc, argv);
 	if (!pipex->splitted_commands)
 	{
@@ -30,16 +22,17 @@ void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 		free_all(pipex);
 		exit (12);
 	}
-	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+	if (pipex->here_doc == true)
 	{
-		pipex->infile = open(argv[1], O_RDWR | O_CREAT | O_TRUNC, 0777);
-		pipex->outfile = open(argv[argc - 1], O_APPEND);
+		pipex->infile = open("here_doc", O_RDWR | O_CREAT | O_TRUNC, 0777);
+		pipex->outfile = open(argv[argc - 1], \
+			O_WRONLY | O_APPEND | O_CREAT, 0777);
+		read_here_doc(pipex, argv[2]);
 	}
 	else
-	{
-		pipex->infile = open(argv[1], O_RDONLY);
-		pipex->outfile = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0777);
-	}
+		pipex->outfile = open(argv[argc - 1], \
+			O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	pipex->infile = open(argv[1], O_RDONLY);
 	if (pipex->infile < 0 || pipex->outfile < 0)
 	{
 		perror("Open");
@@ -97,10 +90,15 @@ void	pipex(int argc, char **argv, char **env)
 	t_pipex	pipex;
 	int		i;
 
-	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+	pipex.here_doc = false;
+	if (ft_strlen(argv[1]) == 8 && ft_strncmp(argv[1], "here_doc", 8) == 0)
+	{
 		pipex.here_doc = true;
+		i = 1;
+	}
+	else
+		i = 0;
 	init_pipex(&pipex, argc, argv, env);
-	i = 0;
 	while (i < argc - 3)
 	{
 		if (i < argc - 4)
