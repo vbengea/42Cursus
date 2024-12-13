@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:34:27 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/13 14:12:04 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:41:17 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	read_here_doc(t_pipex *pipex, char *limiter)
 	len_limiter = ft_strlen(limiter);
 	while (true)
 	{
+		ft_printf("heredoc> ");
 		buffer = get_next_line(STDIN_FILENO);
 		len_buffer = ft_strlen(buffer);
 		if (len_buffer - 1 == len_limiter
@@ -60,6 +61,8 @@ void	free_all(t_pipex *pipex)
 	while (pipex->splitted_path && pipex->splitted_path[i])
 		free(pipex->splitted_path[i++]);
 	free(pipex->splitted_path);
+	if (pipex->here_doc == true)
+		unlink ("here_doc");
 }
 
 char	*find_path(char **env)
