@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:53:19 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/11 16:23:10 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/13 14:25:00 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 {
 	pipex->splitted_path = ft_split(find_path(env), ':');
-	if (!pipex->splitted_path)
-	{
-		perror("Split path");
-		exit(12);
-	}
 	pipex->splitted_commands = split_commands(argc, argv);
 	if (!pipex->splitted_commands)
 	{

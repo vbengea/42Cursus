@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:34:27 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/11 16:30:37 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/13 14:32:18 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ void	free_all(t_pipex *pipex)
 	int	j;
 
 	i = 0;
-	while (pipex->splitted_commands[i])
+	if (pipex->splitted_commands)
 	{
-		j = 0;
-		while (pipex->splitted_commands[i][j])
+		while (pipex->splitted_commands[i])
 		{
-			free(pipex->splitted_commands[i][j]);
-			j++;
+			j = 0;
+			while (pipex->splitted_commands[i][j])
+			{
+				free(pipex->splitted_commands[i][j]);
+				j++;
+			}
+			free(pipex->splitted_commands[i]);
+			i++;
 		}
-		free(pipex->splitted_commands[i]);
-		i++;
 	}
 	free(pipex->splitted_commands);
 	i = 0;
-	while (pipex->splitted_path[i])
-	{
-		free(pipex->splitted_path[i]);
-		i++;
-	}
+	while (pipex->splitted_path && pipex->splitted_path[i])
+		free(pipex->splitted_path[i++]);
 	free(pipex->splitted_path);
 }
 
@@ -45,6 +45,8 @@ char	*find_path(char **env)
 	int		i;
 
 	i = 0;
+	if (!env || !*env)
+		return (NULL);
 	path = NULL;
 	while (env[i])
 	{
