@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:53:19 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/14 11:50:29 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/14 13:25:59 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 		exit (12);
 	}
 	pipex->infile = open(argv[1], O_RDONLY);
-	pipex->outfile = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0777);
-	if (pipex->infile < 0 || pipex->outfile < 0)
+	if (pipex->infile < 0)
 	{
-		perror("Open");
-		if (pipex->infile < 0)
-			pipex->infile = open("/dev/null", O_RDONLY);
+		perror ("INFILE");
+		pipex->infile = open ("/dev/null", O_RDONLY);
 	}
+	pipex->outfile = open(argv[argc - 1], O_RDWR | O_CREAT | O_TRUNC, 0777);
 }
 
 void	child_process(t_pipex *pipex, int argc, int i, char **env)
@@ -37,6 +36,11 @@ void	child_process(t_pipex *pipex, int argc, int i, char **env)
 	dup2(pipex->infile, STDIN_FILENO);
 	if (i == argc - 4)
 	{
+		if (pipex->outfile < 0)
+		{
+			free_all (pipex);
+			exit (1);
+		}
 		dup2(pipex->outfile, STDOUT_FILENO);
 		close(pipex->outfile);
 	}
@@ -67,12 +71,12 @@ void	exec_command(t_pipex *pipex, int i, char **env)
 	{
 		perror("get_full_path");
 		free_all(pipex);
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
 	execve(pipex->full_path, pipex->splitted_commands[i], env);
 	perror("execve");
 	free_all(pipex);
-	exit(EXIT_FAILURE);
+	exit(127);
 }
 
 void	pipex(int argc, char **argv, char **env)

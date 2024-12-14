@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:53:19 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/14 11:55:28 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/14 13:05:08 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	child_process(t_pipex *pipex, int argc, int i, char **env)
 	dup2(pipex->infile, STDIN_FILENO);
 	if (i == argc - 4)
 	{
+		if (pipex->outfile < 0)
+		{
+			free_all (pipex);
+			exit (1);
+		}
 		dup2(pipex->outfile, STDOUT_FILENO);
 		close(pipex->outfile);
 	}
@@ -82,7 +87,7 @@ void	exec_command(t_pipex *pipex, int i, char **env)
 		execve(pipex->full_path, pipex->splitted_commands[i], env);
 	perror("execve");
 	free_all(pipex);
-	exit(EXIT_FAILURE);
+	exit(127);
 }
 
 void	pipex(int argc, char **argv, char **env)
