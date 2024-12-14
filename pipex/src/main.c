@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:34:27 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/13 14:32:18 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/14 11:51:51 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,6 @@ int	main(int argc, char **argv, char **env)
 	{
 		ft_printf("Usage: ./pipex INFILE CMND1 CMND2 OUTFILE\n");
 		exit (0);
-	}
-	if (access(argv[1], F_OK) == -1)
-	{
-		perror("INFILE");
-		exit (ENOENT);
-	}
-	if (access(argv[1], R_OK) == -1)
-	{
-		perror("INFILE");
-		exit (13);
 	}
 	pipex(argc, argv, env);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:53:19 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/13 18:53:39 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/14 11:55:28 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	init_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 	if (pipex->infile < 0 || pipex->outfile < 0)
 	{
 		perror("Open");
-		free_all(pipex);
-		exit (9);
+		if (pipex->infile < 0)
+			pipex->infile = open("/dev/null", O_RDONLY);
 	}
 }
 
