@@ -1,0 +1,37 @@
+
+
+First of all read the commands. 
+
+Argc must be 5, the name of the program plus 4 args.
+
+infile  cmd1 cmd2 outfile
+
+first check of the infile exist and has necesary rights.
+Use acces() to check if the file exists;
+
+acces(filename, F_OK)
+returns 0 if the file exits -1 if does not.
+
+Use acces() to check if i can read write or exec the file
+
+ex: acces(filename, R_OK)
+ex: acces(filename, W_OK)
+ex: acces(filename, X_OK)
+
+acces() returns 0 if the file has necesary rights and -1 if not.
+
+if the file does not exist or doesn't have the necesary rights, the program ends here.
+
+
+
+after that, split the PATH env variable.
+loop through all the paths untill the command is found.
+if not found, look in the current folder
+
+
+
+
+function to execute the command.
+
+Loop for each command and create pipes and fork
+
