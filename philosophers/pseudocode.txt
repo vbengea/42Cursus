@@ -1,0 +1,21 @@
+
+
+
+- Create a data structure to store all the rquired information about a philosopher
+- Create the correct number of philosophers
+- Create the correct number of threads
+- Create a routine
+	- What each philosopher has to do ? In which order ?
+- Initiate all the threads with said routine
+
+
+
+- Create a loop that runs untill any of the philosophers die
+
+
+Routine for philosophers
+
+1 Eat
+2 Sleep
+3 Think
+4 Repeat
