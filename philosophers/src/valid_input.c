@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:03:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/28 10:27:39 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/28 10:57:59 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../incl/philosophers.h"
 
 static	bool	ft_isalldigit(char *s)
 {
@@ -26,14 +26,14 @@ static	bool	ft_isalldigit(char *s)
 	return (true);
 }
 
-static	bool	check_limits(int argc, char **argv)
+static	bool	check_limits(char **argv)
 {
 	int	i;
 
 	i = 1;
 	while (argv[i])
 	{
-		if (i == 1 && ft_atol(argv[i] > 200))
+		if (i == 1 && ft_atol(argv[i]) > 200)
 			return (false);
 		if (i < 5 && i > 1)
 		{
@@ -47,7 +47,7 @@ static	bool	check_limits(int argc, char **argv)
 	return (true);
 }
 
-bool	valid_input(int argc, char **argv)
+bool	valid_input(char **argv)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ bool	valid_input(int argc, char **argv)
 			return (false);
 		i++;
 	}
-	if (!check_limits(argc, argv))
+	if (!check_limits(argv))
 		return (false);
 	return (true);
 }
