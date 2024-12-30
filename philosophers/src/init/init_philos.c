@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:06:31 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/29 20:15:18 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/30 12:26:10 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	init_philos(t_data *data)
 {
-	int	i;
+	size_t	i;
 
 	data->philos = malloc(sizeof(t_philo) * data->n_philos);
 	if (!data->philos)
@@ -22,11 +22,13 @@ int	init_philos(t_data *data)
 	i = 0;
 	while (i < data->n_philos)
 	{
-		data->philos->id = i + 1;
-		data->philos->meals_count = 0;
-		data->philos->is_full = false;
-		data->philos->last_time_meal = 0;
+		data->philos[i].id = i + 1;
+		data->philos[i].meals_count = 0;
+		data->philos[i].is_full = false;
+		data->philos[i].last_time_meal = 0;
 		i++;
 	}
+	if (init_threads(data))
+		return (1);
 	return (0);
 }
