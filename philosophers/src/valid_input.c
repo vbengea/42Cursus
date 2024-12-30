@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:03:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/28 10:57:59 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/29 18:38:58 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static	bool	check_limits(char **argv)
 			if (ft_atol(argv[i]) < 60)
 				return (false);
 		}
-		if (i == 5 && !ft_isalldigit(argv[i]))
+		if (i == 5 && (!ft_isalldigit(argv[i]) || ft_atol(argv[5]) < 1))
 			return (false);
 		i++;
 	}
