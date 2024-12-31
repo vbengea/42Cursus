@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:03:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/29 18:38:58 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/31 11:25:17 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	bool	check_limits(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (i == 1 && ft_atol(argv[i]) > 200)
+		if (i == 1 && (ft_atol(argv[i]) > 200 || ft_atol(argv[i]) < 1))
 			return (false);
 		if (i < 5 && i > 1)
 		{
