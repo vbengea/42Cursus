@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_threads.c                                     :+:      :+:    :+:   */
+/*   init_forks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:26:18 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 12:07:37 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/12/31 11:18:49 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/12/31 11:59:31 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incl/philosophers.h"
 
-int	init_threads(t_data *data)
+int	init_forks(t_data *data)
 {
 	size_t	i;
+	size_t	n_philos;
 
+	n_philos = data->n_philos;
+	data->forks = malloc(sizeof(pthread_mutex_t) * data->n_philos);
+	if (!data->forks)
+		return (1);
 	i = 0;
 	while (i < data->n_philos)
 	{
-		if (pthread_create(&data->philos[i].thread, NULL,
-			(void *)&routine, (void *)data) != 0)
+		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
 			return (1);
-		i++;
-	}
-	i = 0;
-	while (i < data->n_philos)
-	{
-		if (pthread_join(data->philos[i].thread, NULL) != 0)
-			return (1);
+		data->philos[i].l_fork = &data->forks[(i - 1 + n_philos) % n_philos];
+		data->philos[i].r_fork = &data->forks[(i + 1) % n_philos];
 		i++;
 	}
 	return (0);

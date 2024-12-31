@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_threads.c                                     :+:      :+:    :+:   */
+/*   init_program.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:26:18 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 12:07:37 by vbcvali          ###   ########.fr       */
+/*   Created: 2024/12/31 12:08:23 by vbcvali           #+#    #+#             */
+/*   Updated: 2024/12/31 12:12:32 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incl/philosophers.h"
 
-int	init_threads(t_data *data)
+int	init_program(t_data *data, int argc, char **argv)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < data->n_philos)
-	{
-		if (pthread_create(&data->philos[i].thread, NULL,
-			(void *)&routine, (void *)data) != 0)
-			return (1);
-		i++;
-	}
-	i = 0;
-	while (i < data->n_philos)
-	{
-		if (pthread_join(data->philos[i].thread, NULL) != 0)
-			return (1);
-		i++;
-	}
+	if (init_data(data, argc, argv) != 0)
+		return (1);
+	if (init_philos(data) != 0)
+		return (1);
+	if (init_forks(data) != 0)
+		return (1);
+	if (init_threads(data) != 0)
+		return (1);
 	return (0);
 }
