@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:04:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 12:49:17 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/01 12:45:24 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdbool.h>
 # include <sys/time.h>
 
+struct	s_data;
 typedef struct s_philo
 {
 	int				id;
@@ -29,6 +30,7 @@ typedef struct s_philo
 	size_t			last_time_meal;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
+	struct s_data	*data;
 }	t_philo;
 
 typedef struct s_data
@@ -40,6 +42,7 @@ typedef struct s_data
 	size_t			n_times_to_eat;
 	size_t			start;
 	size_t			end;
+	bool			stop_simulation;
 	pthread_mutex_t	*forks;
 	t_philo			*philos;
 }	t_data;
@@ -62,5 +65,9 @@ size_t	get_current_time(void);
 
 /* Routine */
 void	*routine(void *arg);
+
+/* Clean */
+void	free_all(t_data *data);
+void	destroy_mutex(t_data *data);
 
 #endif

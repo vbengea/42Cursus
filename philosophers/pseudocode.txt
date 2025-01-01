@@ -19,3 +19,50 @@ Routine for philosophers
 2 Sleep
 3 Think
 4 Repeat
+
+
+Avoid deadlock
+
+Use a mutex for printf. 
+
+Avoid infinite loops.
+
+Recode usleep()
+
+To avoid deadlocks:
+	If the philo id is even, they pick the left fork first, then the right fork.
+	if the philo id is is odd, the pick the right fork first, then the left one. 
+
+Avoid starvation:
+	Even without deadlock, some philos might never get to eat if other keep grabbing the forks befoere them.
+
+For the forks:
+	Lock the needed forks (right and left)
+		eat
+	Unlock the forks
+
+
+
+Routine logic:
+
+Initiate a loop untill one philo dies or each one has eaten N times.
+	Loop forever if none of the above conditions is met.
+
+	Structure for the routine;
+		Philo x thinks;
+
+		mutex lock l_fork;
+		mutex lock r_fork;
+			philo eats;
+			update last time meal;
+			meals_count++;
+			ft_usleep(time to eat);
+		mutex unlock l_fork;
+		mutex unlock r_fork;
+
+		Philo x sleeps;
+		ft_usleep(time to sleep);
+
+		Check for conditions;
+			A philo has not eaten within time_to_die;
+			All philo have eaten the required number of meals;

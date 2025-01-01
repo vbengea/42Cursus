@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 11:18:49 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 11:59:31 by vbcvali          ###   ########.fr       */
+/*   Updated: 2024/12/31 21:15:18 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,15 @@ int	init_forks(t_data *data)
 	if (!data->forks)
 		return (1);
 	i = 0;
-	while (i < data->n_philos)
+	while (i < n_philos)
 	{
 		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
 			return (1);
+		i++;
+	}
+	i = 0;
+	while (i < data->n_philos)
+	{
 		data->philos[i].l_fork = &data->forks[(i - 1 + n_philos) % n_philos];
 		data->philos[i].r_fork = &data->forks[(i + 1) % n_philos];
 		i++;

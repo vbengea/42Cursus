@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:53:21 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 12:09:35 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/01 12:14:46 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	init_data(t_data *data, int argc, char **argv)
 {
-	data->n_philos = ft_atol(argv[1]);
-	data->time_to_die = ft_atol(argv[2]);
-	data->time_to_eat = ft_atol(argv[3]);
-	data->time_to_sleep = ft_atol(argv[4]);
+	data->n_philos = (size_t)ft_atol(argv[1]);
+	data->time_to_die = (size_t)ft_atol(argv[2]);
+	data->time_to_eat = (size_t)ft_atol(argv[3]);
+	data->time_to_sleep = (size_t)ft_atol(argv[4]);
 	if (argc == 6)
 		data->n_times_to_eat = ft_atol(argv[5]);
+	
+	data->start = get_current_time();
+	data->end = 0;
 	return (0);
 }
