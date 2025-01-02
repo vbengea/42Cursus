@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:53:51 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/01 12:46:18 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/02 19:29:10 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	}
 	if (valid_input(argv))
 		init_program(&data, argc, argv);
+	destroy_mutex(&data);
 	free_all(&data);
 	return (0);
 }
