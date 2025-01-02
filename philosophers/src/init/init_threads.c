@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:26:18 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 20:17:56 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/02 20:18:48 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@ int	init_threads(t_data *data)
 			return (1);
 		i++;
 	}
-	i = 0;
-	while (i < data->n_philos)
-	{
-		if (pthread_join(data->philos[i].thread, NULL) != 0)
-			return (1);
-		i++;
-	}
+	if (pthread_create(&data->monitor, NULL,
+		(void *)&monitor_routine, (void *)data) != 0)
+		return (1);
 	return (0);
 }
