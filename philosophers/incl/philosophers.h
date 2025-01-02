@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:04:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/01 12:45:24 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/02 19:08:03 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_philo
 	size_t			last_time_meal;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	status_lock;
 	struct s_data	*data;
 }	t_philo;
 
@@ -40,11 +41,13 @@ typedef struct s_data
 	size_t			time_to_die;
 	size_t			time_to_sleep;
 	size_t			n_times_to_eat;
-	size_t			start;
-	size_t			end;
+	size_t			start_time;
+	size_t			timestamp;
 	bool			stop_simulation;
+	pthread_mutex_t	stop_mutex;
 	pthread_mutex_t	*forks;
 	t_philo			*philos;
+	pthread_t		monitor;
 }	t_data;
 
 /* Validate input */
@@ -59,6 +62,9 @@ int		init_forks(t_data *data);
 // Initl all
 int		init_program(t_data *data, int argc, char **argv);
 
+/* Join threads */
+int		join_threads(t_data *data);
+
 /* Time */
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
@@ -66,6 +72,12 @@ size_t	get_current_time(void);
 /* Routine */
 void	*routine(void *arg);
 
+/* Monitor */
+void	*monitor_routine(void *arg);
+
+/* Actions */
+void	ft_sleep(t_philo *philo);
+void	ft_eat(t_philo *philo);
 /* Clean */
 void	free_all(t_data *data);
 void	destroy_mutex(t_data *data);
