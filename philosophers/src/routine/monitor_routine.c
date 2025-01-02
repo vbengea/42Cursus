@@ -6,11 +6,15 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 13:46:03 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/02 18:49:55 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/02 20:19:23 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incl/philosophers.h"
+
+		//timestamp may need mutex lock. 
+		//data->timestamp = get_current_time() - data->start_time;
+		//printf("%zu %d has died\n", data->timestamp, data->philos[i].id);
 
 static	void	check_dead(t_data *data, size_t i)
 {
@@ -18,10 +22,9 @@ static	void	check_dead(t_data *data, size_t i)
 	if ((get_current_time() - data->philos[i].last_time_meal) \
 		> data->time_to_die)
 	{
-		//timestamp may need mutex lock. 
-		//data->timestamp = get_current_time() - data->start_time;
-		printf("%zu %zu has died\n", data->timestamp, data->philos[i].id);
+		pthread_mutex_lock(&data->stop_mutex);
 		data->stop_simulation = true;
+		pthread_mutex_unlock(&data->stop_mutex);
 		pthread_mutex_unlock(&data->philos[i].status_lock);
 		return ;
 	}
