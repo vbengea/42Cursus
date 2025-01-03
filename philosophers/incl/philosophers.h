@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:04:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/02 19:08:03 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/03 18:06:32 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,15 @@ typedef struct s_data
 	size_t			time_to_eat;
 	size_t			time_to_die;
 	size_t			time_to_sleep;
+	size_t			time_to_think;
 	size_t			n_times_to_eat;
+	size_t			meals_completed;
 	size_t			start_time;
 	size_t			timestamp;
 	bool			stop_simulation;
+	pthread_mutex_t	meals;
 	pthread_mutex_t	stop_mutex;
+	pthread_mutex_t	print;
 	pthread_mutex_t	*forks;
 	t_philo			*philos;
 	pthread_t		monitor;
@@ -78,6 +82,8 @@ void	*monitor_routine(void *arg);
 /* Actions */
 void	ft_sleep(t_philo *philo);
 void	ft_eat(t_philo *philo);
+void	ft_think(t_philo *philo);
+
 /* Clean */
 void	free_all(t_data *data);
 void	destroy_mutex(t_data *data);

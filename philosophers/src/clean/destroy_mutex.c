@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 12:29:08 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/02 19:15:15 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/03 18:07:01 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void	destroy_mutex(t_data *data)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < (int)data->n_philos)
-		pthread_mutex_destroy(&data->forks[i++]);
+	while (i < data->n_philos)
+	{
+		pthread_mutex_destroy(&data->forks[i]);
+		pthread_mutex_destroy(&data->philos[i].status_lock);
+		i++;
+	}
 	pthread_mutex_destroy(&data->stop_mutex);
-	pthread_mutex_destroy(&data->philos->status_lock);
+	pthread_mutex_destroy(&data->meals);
+	pthread_mutex_destroy(&data->print);
 }
 // TO DO
 

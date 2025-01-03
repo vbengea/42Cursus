@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 10:33:50 by vbcvali           #+#    #+#              #
-#    Updated: 2025/01/02 19:17:10 by vbcvali          ###   ########.fr        #
+#    Updated: 2025/01/03 13:44:39 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SRCS = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/actions/eat.c \
 		$(SRC_DIR)/actions/sleep.c \
 		$(SRC_DIR)/routine/monitor_routine.c \
-		$(SRC_DIR)/join_threads/join.c
+		$(SRC_DIR)/join_threads/join.c \
+		$(SRC_DIR)/actions/think.c
 
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
