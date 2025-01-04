@@ -6,15 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 13:46:03 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/03 20:01:21 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 12:59:42 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incl/philosophers.h"
-
-		//timestamp may need mutex lock. 
-		//data->timestamp = get_current_time() - data->start_time;
-		//printf("%zu %d has died\n", data->timestamp, data->philos[i].id);
 
 static	void	check_is_full(t_data *data, size_t i)
 {
@@ -44,12 +40,11 @@ static	void	check_dead(t_data *data, size_t i)
 
 	timestamp = get_current_time() - data->start_time;
 	pthread_mutex_lock(&data->philos[i].status_lock);
-	//printf("Performing check number: %ld with (%zu) time remaining\n", i, get_current_time() - data->philos[i].last_time_meal);
-	if ((get_current_time() - data->philos[i].last_time_meal) > data->time_to_die)
+	if ((get_current_time() - data->philos[i].last_time_meal) \
+		> data->time_to_die)
 	{
 		pthread_mutex_lock(&data->stop_mutex);
 		data->stop_simulation = true;
-		//printf("Simulation stopped by check_dead function!\n");
 		printf("%zu %d died\n", timestamp, data->philos[i].id);
 		pthread_mutex_unlock(&data->stop_mutex);
 		pthread_mutex_unlock(&data->philos[i].status_lock);
@@ -79,7 +74,7 @@ void	*monitor_routine(void *arg)
 				return (NULL);
 			i++;
 		}
-		//usleep(500);
+		usleep(500);
 	}
 	return (NULL);
 }
