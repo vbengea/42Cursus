@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 11:53:21 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/04 11:40:07 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 18:47:45 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	init_data(t_data *data, int argc, char **argv)
 	data->timestamp = get_current_time();
 	data->stop_simulation = false;
 	data->meals_completed = 0;
-	
 	check_data = data->time_to_die - (data->time_to_eat + data->time_to_sleep);
 	if (check_data > 10)
 		data->time_to_think = check_data - 10;

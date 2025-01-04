@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 12:08:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/04 11:56:13 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 18:47:24 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	init_program(t_data *data, int argc, char **argv)
 	size_t i = 0;
 	while (i < data->n_philos)
 		pthread_mutex_init(&data->philos[i++].status_lock, NULL);
-
-
 	if (init_threads(data) != 0)
 		return (1);
 	if (join_threads(data) != 0)

@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 13:46:03 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/04 12:59:42 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 18:54:30 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	*monitor_routine(void *arg)
 				return (NULL);
 			i++;
 		}
-		usleep(500);
+		usleep(1000);
 	}
 	return (NULL);
 }
