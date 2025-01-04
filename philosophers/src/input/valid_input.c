@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:03:16 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/31 11:25:17 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 13:06:45 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/philosophers.h"
+#include "../../incl/philosophers.h"
 
 static	bool	ft_isalldigit(char *s)
 {

@@ -6,11 +6,11 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:48:17 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/12/28 10:58:30 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 13:06:40 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/philosophers.h"
+#include "../../incl/philosophers.h"
 
 long	ft_atol(const char *str)
 {

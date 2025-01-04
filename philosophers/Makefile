@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 10:33:50 by vbcvali           #+#    #+#              #
-#    Updated: 2025/01/03 13:44:39 by vbcvali          ###   ########.fr        #
+#    Updated: 2025/01/04 13:06:34 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ BIN_DIR = bin
 NAME = $(BIN_DIR)/philo
 
 SRCS = $(SRC_DIR)/main.c \
-		$(SRC_DIR)/valid_input.c \
-		$(SRC_DIR)/ft_atol.c \
+		$(SRC_DIR)/input/valid_input.c \
+		$(SRC_DIR)/input/ft_atol.c \
 		$(SRC_DIR)/time/ft_usleep.c \
 		$(SRC_DIR)/time/get_current_time.c \
 		$(SRC_DIR)/init/init_data.c \
