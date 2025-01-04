@@ -6,7 +6,7 @@
 /*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:04:23 by vbcvali           #+#    #+#             */
-/*   Updated: 2025/01/03 18:06:32 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/04 20:33:49 by vbcvali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int		init_data(t_data *data, int argc, char **argv);
 int		init_philos(t_data *data);
 int		init_threads(t_data *data);
 int		init_forks(t_data *data);
+int		init_mutex(t_data *data);
+
 // Initl all
 int		init_program(t_data *data, int argc, char **argv);
 

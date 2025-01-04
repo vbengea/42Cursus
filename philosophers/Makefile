@@ -6,7 +6,7 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 10:33:50 by vbcvali           #+#    #+#              #
-#    Updated: 2025/01/04 13:06:34 by vbcvali          ###   ########.fr        #
+#    Updated: 2025/01/04 20:34:09 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = $(SRC_DIR)/main.c \
 		$(SRC_DIR)/init/init_threads.c \
 		$(SRC_DIR)/init/init_forks.c \
 		$(SRC_DIR)/init/init_program.c \
+		$(SRC_DIR)/init/init_mutex.c \
 		$(SRC_DIR)/routine/routine.c \
 		$(SRC_DIR)/clean/destroy_mutex.c \
 		$(SRC_DIR)/clean/free_all.c \
