@@ -6,11 +6,15 @@
 #    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 10:33:50 by vbcvali           #+#    #+#              #
-#    Updated: 2025/01/04 20:34:09 by vbcvali          ###   ########.fr        #
+#    Updated: 2025/01/07 19:27:33 by vbcvali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
+
+RED=\033[0;31m
+GREEN=\033[0;32m
+NC=\033[0m
 
 CFLAGS = -Wall -Wextra -Werror -g
 SRC_DIR = src
@@ -56,15 +60,15 @@ $(BIN_DIR):
 
 $(NAME): $(OBJS) | $(BIN_DIR)
 	@$(CC) $(OBJS) -o $@
-	@echo "Philosophers compiled"
+	@echo "${GREEN}Philosophers compiled${NC}"
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "Objects removed"
+	@echo "${RED}Objects removed${NC}"
 
 fclean: clean
 	@rm -rf $(NAME) $(OBJ_DIR) $(BIN_DIR)
-	@echo "Objects and executable removed"
+	@echo "${RED}Objects and executable removed${NC}"
 
 re: fclean all
 
