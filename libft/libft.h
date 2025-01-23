@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vbengea < vbengea@student.42madrid.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:03:08 by vbcvali           #+#    #+#             */
-/*   Updated: 2024/11/09 13:25:34 by vbcvali          ###   ########.fr       */
+/*   Updated: 2025/01/23 12:46:25 by vbengea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -54,6 +55,8 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+char			*ft_strndup(const char *s, size_t n);
+bool			ft_isspace(char c);
 
 typedef struct a_list
 {

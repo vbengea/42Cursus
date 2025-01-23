@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbcvali <vbcvali@student.42.fr>            +#+  +:+       +#+         #
+#    By: vbengea < vbengea@student.42madrid.com     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 17:45:15 by vbcvali           #+#    #+#              #
-#    Updated: 2024/11/09 13:10:08 by vbcvali          ###   ########.fr        #
+#    Updated: 2025/01/23 12:46:46 by vbengea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,9 @@ SRCS = ft_atoi.c \
 		ft_printf_utils.c \
 		ft_printf.c \
 		get_next_line.c \
-		get_next_line_utils.c
+		get_next_line_utils.c \
+		ft_strndup.c \
+		ft_isspace.c
 
 OBJS = $(SRCS:%.c=%.o)
 
